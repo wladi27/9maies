@@ -1,6 +1,5 @@
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
-import clientPromise from '@/lib/mongodb'
 import { ObjectId } from 'mongodb'
 
 export const runtime = 'nodejs'
@@ -46,6 +45,7 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
   }
 
   try {
+    const clientPromise = (await import('@/lib/mongodb')).default
     const client = await clientPromise
     const db = client.db()
     const events = db.collection('events')

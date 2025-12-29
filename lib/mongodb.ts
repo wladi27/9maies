@@ -26,10 +26,13 @@ if (uri && typeof uri === 'string' && uri.length > 0) {
     clientPromise = client.connect()
   }
 } else {
-  // Export a promise that throws only when awaited at runtime.
-  clientPromise = (async () => {
-    throw new Error('Invalid/Missing environment variable: "MONGODB_URI"')
-  })()
+  // Provide a thenable that rejects only when awaited, avoiding build-time crashes.
+  const thenable: any = {
+    then: (_resolve: any, reject: any) => {
+      reject(new Error('Invalid/Missing environment variable: "MONGODB_URI"'))
+    },
+  }
+  clientPromise = thenable as Promise<MongoClient>
 }
 
 export default clientPromise
