@@ -22,7 +22,13 @@ export async function OPTIONS(req: NextRequest) {
 export async function POST(req: NextRequest, { params }: { params: { id: string } }) {
   const headers = corsHeaders(req)
 
-  const id = params?.id
+  // Robustly resolve dynamic :id even if Next doesn't populate params
+  let id = params?.id
+  if (!id) {
+    const pathname = req.nextUrl?.pathname || ''
+    const m = pathname.match(/\/api\/events\/([^/]+)\/rsvp/)
+    if (m && m[1]) id = m[1]
+  }
   if (!id || typeof id !== 'string') {
     return NextResponse.json({ error: 'Missing event id' }, { status: 400, headers })
   }
