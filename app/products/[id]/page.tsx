@@ -1,10 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Link from "next/link"
 import { useParams } from "next/navigation"
 import { Button } from "@/components/ui/button"
-import { useCart } from "@/context/CartContext"
-import { ShoppingBag } from "lucide-react"
+import { ArrowLeft } from "lucide-react"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import Image from "next/image"
+import {
+  Breadcrumb,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbSeparator,
+  BreadcrumbPage,
+} from "@/components/ui/breadcrumb"
 
 interface Product {
   _id: string;
@@ -16,47 +27,132 @@ interface Product {
 
 export default function ProductDetailsPage() {
   const [product, setProduct] = useState<Product | null>(null)
-  const { id } = useParams()
-  const { addToCart } = useCart()
+  const params = useParams() as { id?: string }
+  const id = params?.id
+  const defaultProducts: Record<string, Product> = {
+    "tarjeta-visa": {
+      _id: "tarjeta-visa",
+      name: "Tarjeta Visa",
+      description: "Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.",
+      price: 0,
+
+      image: "/visa.png",
+    },
+    "novamind": {
+      _id: "novamind",
+      name: "NovaMind™",
+      description: "Motor de IA financiera de 9M AI que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.",
+      price: 0,
+      
+      image: "/nova.png",
+    },
+    "exchange": {
+      _id: "exchange",
+      name: "Exchange",
+      description: "Plataforma Exchange de 9M AI para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.",
+      price: 0,
+     
+      image: "/exchange.png",
+    },
+  }
 
   useEffect(() => {
-    if (id) {
-      const fetchProduct = async () => {
+    let cancelled = false
+    async function fetchProduct() {
+      if (!id) return
+      try {
         const res = await fetch(`/api/products/${id}`)
-        const data = await res.json()
-        setProduct(data)
+        if (res.ok) {
+          const data = await res.json()
+          if (!cancelled) setProduct(data as Product)
+          return
+        }
+      } catch (_err) {
+        // ignore and fallback below
       }
-      fetchProduct()
+      // fallback to defaultProducts if available
+      const key = String(id)
+      if (!cancelled) setProduct(defaultProducts[key] ?? null)
     }
+    fetchProduct()
+    return () => { cancelled = true }
   }, [id])
 
   if (!product) {
-    return <div>Loading...</div>
+    return (
+      <main className="min-h-screen bg-background">
+        <Header />
+        <div className="container mx-auto py-24 px-4">
+          <p className="text-muted-foreground">Producto no encontrado.</p>
+          <div className="mt-6">
+            <Link href="/#products">
+              <Button variant="outline" className="flex items-center">
+                <ArrowLeft className="w-4 h-4 mr-2" />
+                Volver a productos
+              </Button>
+            </Link>
+          </div>
+        </div>
+        <Footer />
+      </main>
+    )
   }
 
-  const handleAddToCart = () => {
-    const productToAdd = { ...product, id: product._id, quantity: 1 };
-    addToCart(productToAdd)
-  }
+  // add-to-cart removed per request
 
   return (
-    <div className="container mx-auto py-24 px-4">
-      <div className="grid md:grid-cols-2 gap-12">
+    <main className="min-h-screen bg-background">
+      <Header />
+      <div className="container mx-auto py-24 px-4">
+        <Breadcrumb className="mb-6">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/">Inicio</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/#products">Productos</BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>{product.name}</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        <div className="flex items-center gap-3 mb-6">
+          <Link href="/#products">
+            <Button variant="outline" className="flex items-center">
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Volver a productos
+            </Button>
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12">
         <div>
-          <img src={product.image} alt={product.name} className="w-full h-auto object-cover rounded-lg" />
+          <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-border rounded-2xl overflow-hidden p-4 flex items-center justify-center">
+  <div className="relative w-[300px] h-[300px]">
+    <Image
+      src={product.image || "/placeholder.svg"}
+      alt={product.name}
+      fill
+      className="object-cover" // Cambiado de object-contain a object-cover
+      
+      priority
+    />
+  </div>
+</div>
         </div>
         <div>
           <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
           <p className="text-muted-foreground text-lg mb-6">{product.description}</p>
-          <div className="flex items-center justify-between mb-8">
-            <span className="text-3xl font-bold text-primary">${product.price}</span>
-          </div>
-          <Button onClick={handleAddToCart} size="lg">
-            <ShoppingBag className="w-5 h-5 mr-2" />
-            Add to Cart
-          </Button>
+          {/* Precio ocultado por solicitud */}
+             {/* Add to Cart removed */}
+        </div>
         </div>
       </div>
-    </div>
+      <Footer />
+    </main>
   )
 }

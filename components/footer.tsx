@@ -9,15 +9,19 @@ export function Footer() {
           <div className="grid md:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
             <div className="space-y-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <Image
-                  src="/logo.jpeg"
+                  src="/logo.png"
                   alt="9M AI Logo"
-                  width={40}
-                  height={40}
-                  className="rounded-full"
+                  width={80}
+                  height={80}
+                  className="object-contain"
+                  style={{ background: 'transparent' }}
                 />
-                <span className="text-xl font-bold text-foreground">9M AI</span>
+                <div className="flex flex-col text-sm text-muted-foreground leading-tight">
+                  <div>Agente autorizado</div>
+                  <div>Equipo el proximo nivel</div>
+                </div>
               </div>
               <p className="text-sm text-muted-foreground">
                 La IA que sabe cómo hacer crecer tu dinero. Empoderar a los usuarios para lograr el crecimiento
@@ -34,16 +38,6 @@ export function Footer() {
                     Nosotros
                   </a>
                 </li>
-                <li>
-                  <a href="#team" className="hover:text-primary transition-colors">
-                    Equipo
-                  </a>
-                </li>
-                <li>
-                  <a href="#contact" className="hover:text-primary transition-colors">
-                    Contacto
-                  </a>
-                </li>
               </ul>
             </div>
 
@@ -54,11 +48,6 @@ export function Footer() {
                 <li>
                   <a href="#presentations" className="hover:text-primary transition-colors">
                     Presentaciones
-                  </a>
-                </li>
-                <li>
-                  <a href="#training" className="hover:text-primary transition-colors">
-                    Entrenamiento
                   </a>
                 </li>
               </ul>

@@ -81,64 +81,7 @@ export function Presentations() {
           </Card>
 
           {/* Presentation Cards */}
-          <div className="grid md:grid-cols-3 gap-6">
-            <Card className="bg-gradient-to-b from-purple-950/40 to-black border-purple-800/40 p-6 hover:border-purple-600 transition-colors hover:shadow-lg hover:shadow-purple-900/20">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-900 to-purple-800 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-purple-300" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Presentación Parte 1</h3>
-                <p className="text-sm text-purple-300">
-                  Introducción a 9M AI, nuestra misión, visión y el equipo detrás de la tecnología.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-purple-600 text-purple-400 hover:bg-purple-900/30 bg-transparent"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-gradient-to-b from-purple-950/40 to-black border-purple-800/40 p-6 hover:border-purple-600 transition-colors hover:shadow-lg hover:shadow-purple-900/20">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-900 to-purple-800 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-purple-300" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Presentación Parte 2</h3>
-                <p className="text-sm text-purple-300">
-                  Sistema de recompensas, fondos de estrategia y detalles del programa VIP.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-purple-600 text-purple-400 hover:bg-purple-900/30 bg-transparent"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar
-                </Button>
-              </div>
-            </Card>
-
-            <Card className="bg-gradient-to-b from-purple-950/40 to-black border-purple-800/40 p-6 hover:border-purple-600 transition-colors hover:shadow-lg hover:shadow-purple-900/20">
-              <div className="space-y-4">
-                <div className="w-12 h-12 bg-gradient-to-br from-purple-900 to-purple-800 rounded-lg flex items-center justify-center">
-                  <FileText className="w-6 h-6 text-purple-300" />
-                </div>
-                <h3 className="text-xl font-bold text-white">Whitepaper Técnico</h3>
-                <p className="text-sm text-purple-300">
-                  Documentación técnica completa sobre NovaMind™ y nuestra arquitectura de IA.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-purple-600 text-purple-400 hover:bg-purple-900/30 bg-transparent"
-                >
-                  <Download className="w-4 h-4 mr-2" />
-                  Descargar
-                </Button>
-              </div>
-            </Card>
-          </div>
+         
         </div>
       </div>
     </section>

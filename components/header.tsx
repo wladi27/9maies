@@ -4,7 +4,6 @@ import { useState } from "react"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Cart } from "@/components/Cart"
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -21,15 +20,19 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <Image
-              src="/logo.jpeg"
+              src="/logo.png"
               alt="9M AI Logo"
-              width={40}
-              height={40}
-              className="rounded-full"
+              width={80}
+              height={80}
+              className="object-contain"
+              style={{ background: 'transparent' }}
             />
-            <span className="text-xl font-bold text-foreground">9M AI</span>
+            <div className="flex flex-col text-sm text-muted-foreground leading-tight">
+              <div>Agente autorizado</div>
+              <div>Equipo el proximo nivel</div>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -58,21 +61,13 @@ export function Header() {
             >
               Presentaciones
             </button>
-            <button
-              onClick={() => scrollToSection("training")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Entrenamiento
-            </button>
             <div className="flex items-center gap-4">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('contact')}>Comenzar</Button>
-              <Cart />
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('download')}>Comenzar</Button>
             </div>
           </nav>
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-4 md:hidden">
-            <Cart />
             <button className="text-foreground" onClick={() => setIsMenuOpen(!isMenuOpen)}>
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -106,13 +101,7 @@ export function Header() {
             >
               Presentaciones
             </button>
-            <button
-              onClick={() => scrollToSection("training")}
-              className="text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              Entrenamiento
-            </button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('contact')}>Comenzar</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('download')}>Comenzar</Button>
           </nav>
         )}
       </div>

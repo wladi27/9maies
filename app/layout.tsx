@@ -2,8 +2,8 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { CartProvider } from "@/context/CartContext"
 import "./globals.css"
+import { WhatsappBubble } from "@/components/whatsapp-bubble"
 
 const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
@@ -15,11 +15,11 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/icon-light-32x32.png",
+        url: "/logo.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/icon-dark-32x32.png",
+        url: "/logo.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
@@ -39,7 +39,8 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`font-sans antialiased`}>
-        <CartProvider>{children}</CartProvider>
+  {children}
+        <WhatsappBubble />
         <Analytics />
       </body>
     </html>

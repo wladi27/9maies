@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card"
 import { Brain, Target, Shield } from "lucide-react"
+import { AppDownload } from "./app-download"
 
 export function About() {
   return (
@@ -49,37 +50,7 @@ export function About() {
             </Card>
           </div>
 
-          {/* NovaMind Section */}
-          <div className="bg-gradient-to-br from-primary/20 to-purple-500/20 rounded-2xl p-8 md:p-12 border border-primary/30">
-            <div className="max-w-4xl mx-auto space-y-6">
-              <h3 className="text-3xl md:text-4xl font-bold text-center text-foreground">
-                NovaMind™ - La mente detrás del dinero
-              </h3>
-              <p className="text-lg text-center text-muted-foreground">
-                El motor de IA propio de 9M, entrenado en el ámbito financiero real, que toma decisiones autónomas de
-                inversión
-              </p>
-
-              <div className="grid md:grid-cols-2 gap-6 pt-8">
-                <div className="bg-background/50 backdrop-blur rounded-lg p-6 space-y-2">
-                  <div className="text-3xl font-bold text-primary">3,000</div>
-                  <div className="text-muted-foreground">Noticias procesadas por segundo</div>
-                </div>
-                <div className="bg-background/50 backdrop-blur rounded-lg p-6 space-y-2">
-                  <div className="text-3xl font-bold text-primary">1,000+</div>
-                  <div className="text-muted-foreground">Cripto-activos gestionados</div>
-                </div>
-                <div className="bg-background/50 backdrop-blur rounded-lg p-6 space-y-2">
-                  <div className="text-3xl font-bold text-primary">40M</div>
-                  <div className="text-muted-foreground">Artículos académicos recopilados</div>
-                </div>
-                <div className="bg-background/50 backdrop-blur rounded-lg p-6 space-y-2">
-                  <div className="text-3xl font-bold text-primary">100,000x</div>
-                  <div className="text-muted-foreground">Más rápido que operadores humanos</div>
-                </div>
-              </div>
-            </div>
-          </div>
+          <AppDownload />
         </div>
       </div>
     </section>
