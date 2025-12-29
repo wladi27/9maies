@@ -36,23 +36,23 @@ export default function ProductDetailsPage() {
       description: "Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.",
       price: 0,
 
-      image: "/visa.png",
+      image: "/images/visa.png",
     },
     "novamind": {
       _id: "novamind",
       name: "NovaMind™",
       description: "Motor de IA financiera de 9M AI que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.",
       price: 0,
-      
-      image: "/nova.png",
+
+      image: "/images/novamind.png",
     },
     "exchange": {
       _id: "exchange",
-      name: "Exchange",
+      name: "Intercambio",
       description: "Plataforma Exchange de 9M AI para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.",
       price: 0,
-     
-      image: "/exchange.png",
+
+      image: "/images/intercambio.png",
     },
   }
 

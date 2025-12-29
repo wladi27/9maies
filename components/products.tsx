@@ -20,21 +20,21 @@ export function Products() {
       name: 'Tarjeta Visa',
       description: 'Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.',
       price: 9.99,
-      image: '/visa.png'
+      image: '/images/visa.png'
     },
     {
       _id: 'novamind',
       name: 'NovaMind™',
       description: 'Motor de IA financiera de 9M AI que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.',
       price: 49.99,
-      image: '/nova.png'
+      image: '/images/novamind.png'
     },
     {
       _id: 'exchange',
-      name: 'Exchange',
+      name: 'Intercambio',
       description: 'Plataforma Exchange de 9M AI para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.',
       price: 0.0,
-      image: '/exchange.png'
+      image: '/images/intercambio.png'
     },
   ]
 
@@ -44,27 +44,27 @@ export function Products() {
 
   return (
     <section id="products" className="py-24 bg-background">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Productos <span className="text-primary">9M AI</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Productos exclusivos de la marca 9M AI</p>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Productos exclusivos de la marca 9M AI</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
             {products.map((product) => (
               <Card
                 key={product._id}
-                className="bg-card border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20"
+                className="bg-card border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20 flex flex-col p-0"
               >
-                <Link href={`/products/${product._id}`}>
-                  <div className="aspect-square bg-gradient-to-br from-primary/10 to-purple-500/10 flex items-center justify-center p-4">
+                <Link href={`/products/${product._id}`} className="block">
+                  <div className="relative w-full aspect-square overflow-hidden bg-muted">
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
-                      className="w-full h-full object-contain"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                   </div>
                 </Link>

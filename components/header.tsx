@@ -16,23 +16,26 @@ export function Header() {
     }
   }
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" })
+    setIsMenuOpen(false)
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
-            <Image
-              src="/logo.png"
-              alt="9M AI Logo"
-              width={80}
-              height={80}
-              className="object-contain"
-              style={{ background: 'transparent' }}
-            />
-            <div className="flex flex-col text-sm text-muted-foreground leading-tight">
-              <div>Agente autorizado</div>
-              <div>Equipo el proximo nivel</div>
-            </div>
+            <button onClick={scrollToTop} aria-label="Ir al inicio" className="focus:outline-none">
+              <Image
+                src="/logo.png"
+                alt="9M AI Logo"
+                width={80}
+                height={80}
+                className="object-contain"
+                style={{ background: 'transparent' }}
+              />
+            </button>
           </div>
 
           {/* Desktop Navigation */}
@@ -62,7 +65,7 @@ export function Header() {
               Presentaciones
             </button>
             <div className="flex items-center gap-4">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('download')}>Comenzar</Button>
+              <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('products')}>Comenzar</Button>
             </div>
           </nav>
 
@@ -101,7 +104,7 @@ export function Header() {
             >
               Presentaciones
             </button>
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('download')}>Comenzar</Button>
+            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('products')}>Comenzar</Button>
           </nav>
         )}
       </div>

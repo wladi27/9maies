@@ -42,10 +42,10 @@ export function Hero() {
       </div>
 
       <div className="container mx-auto px-4 z-10">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 items-center">
           {/* Left: Text content */}
-          <div className="space-y-8">
-            <h1 className="text-4xl md:text-6xl font-bold">
+          <div className="space-y-6 sm:space-y-8">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-primary via-purple-400 to-primary bg-clip-text text-transparent">
                 9M AI
               </span>
@@ -53,7 +53,7 @@ export function Hero() {
               <span className="text-foreground">La IA que sabe cómo hacer crecer tu dinero</span>
             </h1>
 
-            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
               Empoderar a los usuarios para lograr el crecimiento financiero a través de la inteligencia artificial
             </p>
 

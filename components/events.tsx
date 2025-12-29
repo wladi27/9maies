@@ -10,6 +10,8 @@ import { useMemo, useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { useToast } from '@/hooks/use-toast'
 
 type Event = {
   _id: string
@@ -18,6 +20,47 @@ type Event = {
   date: string | null
   location: string | null
   featuredImage?: string | null
+}
+
+// Fixed locale/timezone formatters to avoid SSR/CSR hydration mismatches
+const DATE_FORMAT = new Intl.DateTimeFormat('es-ES', {
+  timeZone: 'UTC',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+})
+
+const TIME_FORMAT = new Intl.DateTimeFormat('es-ES', {
+  timeZone: 'UTC',
+  hour: '2-digit',
+  minute: '2-digit',
+})
+
+const DATE_TIME_FORMAT = new Intl.DateTimeFormat('es-ES', {
+  timeZone: 'UTC',
+  day: '2-digit',
+  month: '2-digit',
+  year: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+})
+
+function formatDate(dateStr: string | null) {
+  if (!dateStr) return null
+  const date = new Date(dateStr)
+  return isNaN(date.getTime()) ? null : DATE_FORMAT.format(date)
+}
+
+function formatTime(dateStr: string | null) {
+  if (!dateStr) return null
+  const date = new Date(dateStr)
+  return isNaN(date.getTime()) ? null : TIME_FORMAT.format(date)
+}
+
+function formatDateTime(dateStr: string | null) {
+  if (!dateStr) return null
+  const date = new Date(dateStr)
+  return isNaN(date.getTime()) ? null : DATE_TIME_FORMAT.format(date)
 }
 
 export function Events() {
@@ -30,7 +73,7 @@ export function Events() {
       description: 'Estrategias cuantitativas, IA aplicada y gestión patrimonial de próxima generación.',
       date: new Date(2026, 0, 8, 18, 0, 0).toISOString(), // 08 enero 2026
       location: 'Panamá',
-  featuredImage: '/panama.jpg',
+  featuredImage: '/images/panama-evento.png',
     },
     {
       _id: 'evt-2',
@@ -38,7 +81,7 @@ export function Events() {
       description: 'Casos reales de automatización de carteras. Del 6 al 9 de febrero de 2026.',
       date: new Date(2026, 1, 6, 10, 0, 0).toISOString(), // inicio 06 febrero 2026
       location: 'Dubái, EAU',
-  featuredImage: '/dubai.jpg',
+  featuredImage: '/images/dubai-evento.png',
     },
     {
       _id: 'evt-3',
@@ -46,7 +89,7 @@ export function Events() {
       description: 'Arquitectura de datos, señales y ejecución autónoma en múltiples mercados.',
   date: new Date(2025, 11, 17, 16, 0, 0).toISOString(), // 17 diciembre 2025
       location: 'Ciudad de México, México',
-  featuredImage: '/mexico.jpg',
+  featuredImage: '/images/mexico-evento.png',
     },
   ]
   // Modal state
@@ -54,13 +97,16 @@ export function Events() {
   const [formName, setFormName] = useState('')
   const [formEmail, setFormEmail] = useState('')
   const [formWhatsapp, setFormWhatsapp] = useState('')
+  const [formTelegram, setFormTelegram] = useState('')
   const [formCountry, setFormCountry] = useState('')
   const [formMessageValue, setFormMessageValue] = useState('')
+  const [formHeardFrom, setFormHeardFrom] = useState('')
   const [sending, setSending] = useState(false)
   const [formMessage, setFormMessage] = useState<string | null>(null)
   const [sent, setSent] = useState(false)
   // Mantener la proporción real del flyer para que se vea en su tamaño normal
   const [ratios, setRatios] = useState<Record<string, number>>({})
+  const { toast } = useToast()
 
   function openModal(id: string) {
     setOpenEventId(id)
@@ -68,8 +114,10 @@ export function Events() {
     setFormName('')
     setFormEmail('')
     setFormWhatsapp('')
+    setFormTelegram('')
     setFormCountry('')
     setFormMessageValue('')
+    setFormHeardFrom('')
     setFormMessage(null)
     setSending(false)
     setSent(false)
@@ -87,18 +135,29 @@ export function Events() {
       const res = await fetch(`/api/events/${openEventId}/rsvp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: formEmail, name: formName, whatsapp: formWhatsapp, country: formCountry, message: formMessageValue }),
+        body: JSON.stringify({
+          email: formEmail,
+          name: formName,
+          whatsapp: formWhatsapp,
+          telegram: formTelegram,
+          country: formCountry,
+          heardFrom: formHeardFrom,
+          message: formMessageValue,
+        }),
       })
       const data = await res.json()
       if (!res.ok) throw new Error(data?.error || 'Error')
-      setFormMessage('Registro enviado correctamente — ¡gracias!')
+      // Toast de éxito (3s) y cerrar modal
+      toast({ title: 'Registro enviado', description: '¡Gracias por confirmar tu asistencia!', duration: 3000 })
       setSent(true)
       setFormName('')
       setFormEmail('')
-  setFormWhatsapp('')
-  setFormCountry('')
-  setFormMessageValue('')
-      // Mantener el modal abierto para mostrar el mensaje de éxito
+      setFormWhatsapp('')
+      setFormTelegram('')
+      setFormCountry('')
+      setFormHeardFrom('')
+      setFormMessageValue('')
+      setOpenEventId(null)
     } catch (err: any) {
       setFormMessage(err?.message || 'Error enviando el registro')
     } finally {
@@ -122,39 +181,38 @@ export function Events() {
 
   return (
     <>
-    <section id="events" className="py-24 bg-secondary">
-      <div className="container mx-auto px-4">
+    <section id="events" className="bg-secondary pb-24 pt-0">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+          <div className="text-center space-y-4 mb-16 pt-8">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               <span className="text-primary">Eventos</span> Globales
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Participa en nuestros eventos internacionales y confirma tu asistencia dejando tu correo.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {threeEvents && threeEvents.length === 0 && <div>No hay eventos disponibles.</div>}
             {threeEvents && threeEvents.map((ev) => (
-              <Card key={ev._id} className="bg-card border-border overflow-hidden hover:shadow-lg transition-shadow">
+              <Card
+                key={ev._id}
+                className="bg-card border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20 flex flex-col p-0"
+              >
                 <div>
-                  <div className="relative bg-muted">
-                    <AspectRatio ratio={Math.max(ratios[ev._id] ?? 16/9, 1)}>
+                  <div className="relative bg-gradient-to-br from-primary/20 via-purple-400/15 to-secondary/20">
+                    <AspectRatio ratio={9 / 16}>
                       {ev.featuredImage ? (
                         <Image
                           src={ev.featuredImage}
                           alt={ev.title}
                           fill
-                          className="object-contain object-center origin-center scale-[0.95]"
+                          className="object-contain object-center"
                           sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
                           priority={false}
                           onLoadingComplete={(img) => {
-                            // Ajustar la relación de aspecto al tamaño natural del flyer
-                            const { naturalWidth, naturalHeight } = img
-                            if (naturalWidth && naturalHeight) {
-                              setRatios((prev) => ({ ...prev, [ev._id]: naturalWidth / naturalHeight }))
-                            }
+                            // Ya no ajustamos la relación: todos usan 3:4 fijo para uniformidad
                           }}
                         />
                       ) : (
@@ -185,7 +243,7 @@ export function Events() {
                         <Calendar className="w-4 h-4 text-primary" aria-hidden />
                         {ev.date ? (
                           <span>
-                            {new Date(ev.date).toLocaleDateString()} • {new Date(ev.date).toLocaleTimeString()}
+                            {formatDate(ev.date)} • {formatTime(ev.date)}
                           </span>
                         ) : (
                           <span>Fecha por definir</span>
@@ -213,6 +271,13 @@ export function Events() {
           setFormMessage(null)
           setSent(false)
           setSending(false)
+          setFormTelegram('')
+          setFormHeardFrom('')
+          setFormWhatsapp('')
+          setFormCountry('')
+          setFormMessageValue('')
+          setFormName('')
+          setFormEmail('')
         }
       }}>
         <DialogContent>
@@ -226,7 +291,7 @@ export function Events() {
             </DialogTitle>
             <DialogDescription>
               {selectedEvent && selectedEvent.date ? (
-                <>Fecha/Hora: {new Date(selectedEvent.date).toLocaleString()} • Lugar: {selectedEvent.location || 'Online'}</>
+                <>Fecha/Hora: {formatDateTime(selectedEvent.date)} • Lugar: {selectedEvent.location || 'Online'}</>
               ) : (
                 'Deja tus datos para confirmar tu asistencia al evento.'
               )}
@@ -246,8 +311,30 @@ export function Events() {
               <Input id="whatsapp" type="tel" value={formWhatsapp} onChange={(e) => setFormWhatsapp(e.target.value)} placeholder="Tu número de WhatsApp" />
             </div>
             <div className="grid gap-2">
+              <Label htmlFor="telegram">Telegram</Label>
+              <Input id="telegram" value={formTelegram} onChange={(e) => setFormTelegram(e.target.value)} placeholder="Tu usuario o número en Telegram" />
+            </div>
+            <div className="grid gap-2">
               <Label htmlFor="country">País</Label>
               <Input id="country" value={formCountry} onChange={(e) => setFormCountry(e.target.value)} placeholder="Tu país" />
+            </div>
+            <div className="grid gap-2">
+              <Label>¿Cómo nos conociste?</Label>
+              <Select value={formHeardFrom} onValueChange={setFormHeardFrom}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Selecciona una opción" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="instagram">Instagram</SelectItem>
+                  <SelectItem value="facebook">Facebook</SelectItem>
+                  <SelectItem value="telegram">Telegram</SelectItem>
+                  <SelectItem value="tiktok">TikTok</SelectItem>
+                  <SelectItem value="referido">Referencia/Amigo</SelectItem>
+                  <SelectItem value="evento">Evento anterior</SelectItem>
+                  <SelectItem value="busqueda">Búsqueda en Google</SelectItem>
+                  <SelectItem value="otro">Otro</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
             <div className="grid gap-2">
               <Label htmlFor="message">Mensaje</Label>

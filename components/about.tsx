@@ -5,10 +5,10 @@ import { AppDownload } from "./app-download"
 export function About() {
   return (
     <section id="about" className="py-24 bg-secondary">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
               Sobre <span className="text-primary">9M AI</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
