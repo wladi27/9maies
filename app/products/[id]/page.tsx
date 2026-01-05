@@ -131,7 +131,7 @@ export default function ProductDetailsPage() {
 
         <div className="grid md:grid-cols-2 gap-12">
         <div>
-          <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-border rounded-2xl overflow-hidden p-4 flex items-center justify-center">
+            <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary rounded-2xl overflow-hidden p-4 flex items-center justify-center shadow-lg shadow-primary/20">
   <div className="relative w-[300px] h-[300px]">
     <Image
       src={product.image || "/placeholder.svg"}

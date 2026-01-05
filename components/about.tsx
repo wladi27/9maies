@@ -19,7 +19,7 @@ export function About() {
 
           {/* Mission, Vision, Commitment Cards */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="bg-card border-border p-8 hover:border-primary transition-colors">
+            <Card className="bg-card border border-primary p-8 shadow-lg shadow-primary/20 transition-colors">
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                   <Target className="w-8 h-8 text-primary" />
@@ -29,7 +29,7 @@ export function About() {
               </div>
             </Card>
 
-            <Card className="bg-card border-border p-8 hover:border-primary transition-colors">
+            <Card className="bg-card border border-primary p-8 shadow-lg shadow-primary/20 transition-colors">
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                   <Brain className="w-8 h-8 text-primary" />
@@ -39,7 +39,7 @@ export function About() {
               </div>
             </Card>
 
-            <Card className="bg-card border-border p-8 hover:border-primary transition-colors">
+            <Card className="bg-card border border-primary p-8 shadow-lg shadow-primary/20 transition-colors">
               <div className="flex flex-col items-center text-center space-y-4">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                   <Shield className="w-8 h-8 text-primary" />

@@ -1,6 +1,13 @@
+"use client"
+
 import React from "react"
+import { usePathname } from "next/navigation"
 
 export function WhatsappBubble() {
+  const pathname = usePathname()
+  // Do not show on admin routes
+  if (pathname?.startsWith("/admin")) return null
+
   return (
     <a
       href="https://wa.me/34614211245"

@@ -57,7 +57,7 @@ export function Products() {
             {products.map((product) => (
               <Card
                 key={product._id}
-                className="bg-card border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20 flex flex-col p-0"
+                className="bg-card border border-primary overflow-hidden shadow-lg shadow-primary/20 transition-all flex flex-col p-0"
               >
                 <Link href={`/products/${product._id}`} className="block">
                   <div className="relative w-full aspect-square overflow-hidden bg-muted">

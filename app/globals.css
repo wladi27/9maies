@@ -88,3 +88,67 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Admin theme variants: light (default) and night */
+.admin-light {
+  --color-surface: #ffffff;
+  --color-muted-surface: #f8fafc;
+  --color-primary: #6d28d9; /* purple-600 */
+  --color-primary-700: #5b21b6;
+  --color-primary-900: #3b0f6f;
+  --color-accent-soft: #c4b5fd;
+  --color-secondary: #d946ef;
+  --color-text: #0f1724;
+  --color-text-muted: #6b7280;
+}
+
+.admin-night {
+  --color-surface: #0b1220;
+  --color-muted-surface: #081024;
+  --color-primary: #7c3aed; /* slightly brighter for dark bg */
+  --color-primary-700: #6d28d9;
+  --color-primary-900: #4c1d95;
+  --color-accent-soft: #9f7aea;
+  --color-secondary: #d946ef;
+  --color-text: #e6eef8;
+  --color-text-muted: #9aa4b2;
+}
+
+/* Map admin semantic colors to the original theme variables Tailwind utilities use */
+.admin-light {
+  --foreground: var(--color-text);
+  --card-foreground: var(--color-text);
+  --muted-foreground: var(--color-text-muted);
+  --muted: rgba(15,23,36,0.04);
+  --primary: var(--color-primary);
+  --primary-foreground: #ffffff;
+  --sidebar: var(--color-surface);
+  --sidebar-foreground: var(--color-text);
+}
+
+.admin-night {
+  --foreground: var(--color-text);
+  --card-foreground: var(--color-text);
+  --muted-foreground: var(--color-text-muted);
+  --muted: rgba(230,238,248,0.06);
+  --primary: var(--color-primary);
+  --primary-foreground: #ffffff;
+  --sidebar: var(--color-surface);
+  --sidebar-foreground: var(--color-text);
+}
+
+/* Utility mappings for admin components to use the variables */
+.admin-root { background: var(--color-surface); color: var(--color-text); }
+.admin-surface { background: var(--color-surface); }
+.admin-card { background: var(--color-surface); border-color: rgba(109,40,217,0.08); }
+.admin-cta { background-image: linear-gradient(90deg,var(--color-primary),var(--color-primary-700)); color: #fff; }
+
+/* Smooth theme transition */
+.admin-root { transition: background-color 200ms ease, color 200ms ease; }
+.admin-card { transition: background-color 200ms ease, border-color 200ms ease, box-shadow 200ms ease; }
+
+/* Row hover and list item hover using theme variables */
+.admin-row-hover:hover { background-color: var(--color-muted-surface); }
+.admin-list-item { transition: background-color 150ms ease, color 150ms ease; }
+.admin-list-item:hover { background-color: var(--color-muted-surface); }
+

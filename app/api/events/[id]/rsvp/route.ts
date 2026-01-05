@@ -23,7 +23,8 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
 
   // Robustly resolve dynamic :id even if Next doesn't populate params
   let id = params?.id
-  if (!id) {
+    let emailSent = false
+    try {
     const pathname = req.nextUrl?.pathname || ''
     const m = pathname.match(/\/api\/events\/([^/]+)\/rsvp/)
     if (m && m[1]) id = m[1]
@@ -32,23 +33,25 @@ export async function POST(req: NextRequest, { params }: { params: { id: string 
     return NextResponse.json({ error: 'Missing event id' }, { status: 400, headers })
   }
 
+          requireTLS: Number(SMTP_PORT) === 587,
   let body: any
   try {
     body = await req.json()
   } catch {
-    return NextResponse.json({ error: 'Invalid JSON body' }, { status: 400, headers })
+        const info = await transporter.sendMail({
   }
 
+          replyTo: email,
   const { email, name, whatsapp, telegram, country, heardFrom, message } = body || {}
   if (!email) {
     return NextResponse.json({ error: 'email is required' }, { status: 400, headers })
-  }
+        })
+        emailSent = Boolean(info?.messageId)
 
-  try {
-    const clientPromise = (await import('@/lib/mongodb')).default
+    } catch (mailErr) {
+      console.error('RSVP mail error', mailErr)
     const client = await clientPromise
-    const db = client.db()
-    const events = db.collection('events')
+    return NextResponse.json({ message: 'Registered', id: String(result.insertedId), emailSent }, { status: 201, headers })
     const participants = db.collection('participants')
 
     let eventObjectId: ObjectId | null = null

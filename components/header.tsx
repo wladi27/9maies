@@ -39,31 +39,11 @@ export function Header() {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Nosotros
-            </button>
-            <button
-              onClick={() => scrollToSection("products")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Productos
-            </button>
-            <button
-              onClick={() => scrollToSection("events")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Eventos
-            </button>
-            <button
-              onClick={() => scrollToSection("presentations")}
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Presentaciones
-            </button>
+          <nav className="hidden md:flex items-center gap-4">
+            <Button size="sm" onClick={() => scrollToSection("about")}>Nosotros</Button>
+            <Button size="sm" onClick={() => scrollToSection("products")}>Productos</Button>
+            <Button size="sm" onClick={() => scrollToSection("events")}>Eventos</Button>
+            <Button size="sm" onClick={() => scrollToSection("presentations")}>Presentaciones</Button>
             <div className="flex items-center gap-4">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('products')}>Comenzar</Button>
             </div>
@@ -80,30 +60,10 @@ export function Header() {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="md:hidden py-4 flex flex-col gap-4 border-t border-border">
-            <button
-              onClick={() => scrollToSection("about")}
-              className="text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              Nosotros
-            </button>
-            <button
-              onClick={() => scrollToSection("products")}
-              className="text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              Productos
-            </button>
-            <button
-              onClick={() => scrollToSection("events")}
-              className="text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              Eventos
-            </button>
-            <button
-              onClick={() => scrollToSection("presentations")}
-              className="text-muted-foreground hover:text-primary transition-colors text-left"
-            >
-              Presentaciones
-            </button>
+            <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("about")}>Nosotros</Button>
+            <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("products")}>Productos</Button>
+            <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("events")}>Eventos</Button>
+            <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("presentations")}>Presentaciones</Button>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('products')}>Comenzar</Button>
           </nav>
         )}

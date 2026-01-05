@@ -8,7 +8,7 @@ export function AppDownload() {
     <section id="download" className="">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <Card className="bg-gradient-to-br from-primary/10 to-purple-500/10 border-primary/30 overflow-hidden">
+          <Card className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary overflow-hidden shadow-lg shadow-primary/20">
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="p-8 md:p-12 space-y-6">
                 
@@ -46,9 +46,9 @@ export function AppDownload() {
               
               {/* CONTENEDOR DE IMAGEN CON PADDING */}
               <div className="p-4 md:p-6 lg:p-8"> {/* Padding en el contenedor */}
-                <div className="relative h-96 md:h-full min-h-[500px] rounded-2xl overflow-hidden shadow-xl">
+                <div className="relative h-96 md:h-full min-h-[500px] rounded-2xl overflow-hidden">
                   <Image 
-                    src="/oficina.jpg" 
+                    src="/corpo.jpeg" 
                     alt="9M AI Corporation" 
                     fill 
                     className="object-cover rounded-2xl"

@@ -70,9 +70,9 @@ export function Events() {
     {
       _id: 'evt-1',
       title: 'Evento en Panamá',
-      description: 'Estrategias cuantitativas, IA aplicada y gestión patrimonial de próxima generación.',
-      date: new Date(2026, 0, 8, 18, 0, 0).toISOString(), // 08 enero 2026
-      location: 'Panamá',
+      description: 'Estrategias cuantitativas, IA aplicada y gestión patrimonial de próxima generación. ',
+      date: new Date(2026, 0, 8, 18, 30, 0).toISOString(), // 08 enero 2026 (inicio 18:30)
+      location: 'RENAISSANCE Panamá City Hotel. Vía España Calle Ricardo Arias. Ciudad de Panamá. Frente a la Autoridad de Pasaportes, Panamá.',
   featuredImage: '/images/panama-evento.png',
     },
     {
@@ -80,7 +80,7 @@ export function Events() {
       title: 'Evento en Dubái EAU',
       description: 'Casos reales de automatización de carteras. Del 6 al 9 de febrero de 2026.',
       date: new Date(2026, 1, 6, 10, 0, 0).toISOString(), // inicio 06 febrero 2026
-      location: 'Dubái, EAU',
+      location: 'Por definir',
   featuredImage: '/images/dubai-evento.png',
     },
     {
@@ -198,7 +198,7 @@ export function Events() {
             {threeEvents && threeEvents.map((ev) => (
               <Card
                 key={ev._id}
-                className="bg-card border-border overflow-hidden hover:border-primary transition-all hover:shadow-lg hover:shadow-primary/20 flex flex-col p-0"
+                className="bg-card border border-primary overflow-hidden shadow-lg shadow-primary/20 transition-all flex flex-col p-0"
               >
                 <div>
                   <div className="relative bg-gradient-to-br from-primary/20 via-purple-400/15 to-secondary/20">
@@ -235,8 +235,10 @@ export function Events() {
                     <p className="text-sm text-muted-foreground line-clamp-3">{ev.description}</p>
 
                     <div className="grid grid-cols-1 gap-1 text-sm text-muted-foreground">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-primary" aria-hidden />
+                      <div className="flex items-center gap-2 min-w-0">
+                        <div className="flex-shrink-0 text-primary">
+                          <MapPin className="w-4 h-4" aria-hidden />
+                        </div>
                         <span className="truncate">{ev.location || 'Online'}</span>
                       </div>
                       <div className="flex items-center gap-2">

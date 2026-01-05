@@ -98,7 +98,7 @@ export function Presentations() {
                         className="border-purple-600 text-purple-400 hover:bg-purple-900/30 px-6"
                       >
                         <a
-                          href="/pdf/Bienvenido%20a%209M%20Presentation.pdf"
+                          href="/pdf/9M AI - La AI que sabe cómo hacer crecer tu dinero - Español.pdf"
                           download
                           target="_blank"
                           rel="noopener noreferrer"
