@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
+import EventGallery from "@/components/event-gallery"
 
 interface Product {
   _id: string;
@@ -14,6 +15,30 @@ interface Product {
 }
 
 export function Products() {
+  const eventImages = [
+    '/images/event1.jpg',
+    '/images/event2.jpg',
+    '/images/event3.jpg'
+  ]
+
+  const videos = [
+    { id: 'v1', title: 'Evento: Lanzamiento 9M', thumbnail: '/images/event1-thumb.jpg', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' },
+    { id: 'v2', title: 'Panel: Estrategias IA', thumbnail: '/images/event2-thumb.jpg', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' },
+    { id: 'v3', title: 'Webinar: Fondo 9M', thumbnail: '/images/event3-thumb.jpg', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' }
+  ]
+
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => {
+      setCurrentSlide((s) => (s + 1) % eventImages.length)
+    }, 5000)
+    return () => clearInterval(t)
+  }, [])
+
+  const prevSlide = () => setCurrentSlide((s) => (s - 1 + eventImages.length) % eventImages.length)
+  const nextSlide = () => setCurrentSlide((s) => (s + 1) % eventImages.length)
+
   const defaultProducts: Product[] = [
     {
       _id: 'tarjeta-visa',
@@ -44,7 +69,9 @@ export function Products() {
 
   return (
     <section id="products" className="py-24 bg-background">
-      <div className="container mx-auto px-4 sm:px-6">
+      <EventGallery />
+
+      <div className="container pt-25 mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">

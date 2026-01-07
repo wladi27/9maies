@@ -16,19 +16,18 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: "/logo.png",
+        url: "/9M-favicon.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/logo.png",
+        url: "/9M-favicon.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/icon.svg",
+        url: "/9M-favicon.png",
         type: "image/svg+xml",
       },
-    ],
-    apple: "/apple-icon.png",
+    ]
   },
 }
 
@@ -39,6 +38,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
+      <head>
+        <link rel="icon" href="/logo.png" />
+        <link rel="shortcut icon" href="/icon-light-32x32.png" />
+        <link rel="apple-touch-icon" href="/apple-icon.png" />
+        <meta name="theme-color" content="#0f172a" />
+      </head>
       <body className={`font-sans antialiased`}>
   {children}
         <WhatsappBubble />

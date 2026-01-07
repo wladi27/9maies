@@ -78,7 +78,7 @@ export function Hero() {
           <div className="relative h-80 md:h-[500px] flex items-center justify-center">
             <div className="relative w-full h-full max-w-md">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-3xl blur-xl"></div>
-              <div className="relative w-full h-full bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl overflow-hidden p-6">
+              <div className="relative w-full h-full bg-gray-900/50 backdrop-blur-sm border-2 border-primary rounded-3xl overflow-hidden p-6">
                 <Image 
                   src="/images/kv-402x.png" 
                   alt="9M AI Mobile App" 

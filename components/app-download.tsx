@@ -33,12 +33,13 @@ export function AppDownload() {
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <a
-                    href="/pdf/9M AI - La AI que sabe cómo hacer crecer tu dinero - Español.pdf"
-                    download
+                    href="https://www.9mc.ai/wp-content/uploads/2025/05/9M_License_0519.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <Button className="bg-primary text-primary-foreground hover:bg-primary/90 flex-1">
                       <Download className="w-5 h-5 mr-2" />
-                      Descargar PDF
+                      Descargar licencias
                     </Button>
                   </a>
                 </div>
