@@ -41,11 +41,11 @@ export function Products() {
 
   const defaultProducts: Product[] = [
     {
-      _id: 'tarjeta-visa',
-      name: 'Tarjeta Visa',
-      description: 'Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.',
-      price: 9.99,
-      image: '/images/visa.png'
+      _id: 'academia',
+      name: 'Academia 9M AI',
+      description: 'Programa formativo de élite para inversores: cursos, certificaciones y casos prácticos para dominar la inversión con IA.',
+      price: 0.0,
+      image: '/academy.png'
     },
     {
       _id: 'novamind',
@@ -53,6 +53,13 @@ export function Products() {
       description: 'Motor de IA financiera de 9M AI que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.',
       price: 49.99,
       image: '/images/novamind.png'
+    },
+    {
+      _id: 'tarjeta-visa',
+      name: 'Tarjeta Visa',
+      description: 'Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.',
+      price: 9.99,
+      image: '/images/visa.png'
     },
     {
       _id: 'exchange',
@@ -80,29 +87,31 @@ export function Products() {
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Productos exclusivos de la marca 9M AI</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {products.map((product) => (
               <Card
                 key={product._id}
                 className="bg-card border border-primary overflow-hidden shadow-lg shadow-primary/20 transition-all flex flex-col p-0"
               >
                 <Link href={`/products/${product._id}`} className="block">
-                  <div className="relative w-full aspect-square overflow-hidden bg-muted">
+                  <div className="w-full overflow-hidden bg-black" style={{ aspectRatio: '1/1' }}>
                     <img
                       src={product.image || "/placeholder.svg"}
                       alt={product.name}
-                      className="absolute inset-0 w-full h-full object-cover"
+                      className="w-full h-full object-cover block"
                     />
                   </div>
                 </Link>
-                <div className="p-6 space-y-4">
-                  <div>
+                <div className="p-6 flex flex-col flex-1">
+                  <div className="flex-1">
                     <Link href={`/products/${product._id}`}>
                       <h3 className="text-xl font-bold text-foreground mb-2">{product.name}</h3>
                     </Link>
-                    <p className="text-muted-foreground text-sm">{product.description}</p>
+                    <p className="text-muted-foreground text-sm line-clamp-3">
+                      {product.description}
+                    </p>
                   </div>
-                  <div className="flex items-center justify-end pt-4 border-t border-border">
+                  <div className="mt-auto flex items-center justify-end pt-4 border-t border-border">
                     <Link href={`/products/${product._id}`}>
                       <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
                         Ver detalle

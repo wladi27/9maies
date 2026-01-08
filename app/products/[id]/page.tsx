@@ -36,7 +36,7 @@ export default function ProductDetailsPage() {
       description: "Tarjeta Visa co‑brandeada con 9M AI para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.",
       price: 0,
 
-      image: "/images/visa.png",
+      image: "/visa2.png",
     },
     "novamind": {
       _id: "novamind",
@@ -44,7 +44,14 @@ export default function ProductDetailsPage() {
       description: "Motor de IA financiera de 9M AI que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.",
       price: 0,
 
-      image: "/images/novamind.png",
+      image: "/niva2.png",
+    },
+    "academia": {
+      _id: "academia",
+      name: "Academia 9M AI",
+      description: "Programa formativo de élite para inversores: cursos, certificaciones y casos prácticos para dominar la inversión con IA. Contenidos on-demand, workshops y material exclusivo para alumnos.",
+      price: 0,
+      image: "/academy2.png",
     },
     "exchange": {
       _id: "exchange",
@@ -52,7 +59,7 @@ export default function ProductDetailsPage() {
       description: "Plataforma Exchange de 9M AI para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.",
       price: 0,
 
-      image: "/images/intercambio.png",
+      image: "/exchenge2.png",
     },
   }
 
@@ -130,26 +137,26 @@ export default function ProductDetailsPage() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12">
-        <div>
-            <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary rounded-2xl overflow-hidden p-4 flex items-center justify-center shadow-lg shadow-primary/20">
-  <div className="relative w-[300px] h-[300px]">
-    <Image
-      src={product.image || "/placeholder.svg"}
-      alt={product.name}
-      fill
-      className="object-cover" // Cambiado de object-contain a object-cover
-      
-      priority
-    />
-  </div>
-</div>
-        </div>
-        <div>
-          <h1 className="text-4xl font-bold mb-4">{product.name}</h1>
-          <p className="text-muted-foreground text-lg mb-6">{product.description}</p>
-          {/* Precio ocultado por solicitud */}
-             {/* Add to Cart removed */}
-        </div>
+          <div>
+            <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary rounded-2xl overflow-hidden shadow-lg shadow-primary/20">
+              <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
+                <Image
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+              <div className="p-6">
+                <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
+                <p className="text-muted-foreground text-base md:text-lg">{product.description}</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            {/* Aquí puedes añadir acciones relacionadas (precio, botones) */}
+          </div>
         </div>
       </div>
       <Footer />

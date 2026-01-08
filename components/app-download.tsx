@@ -49,7 +49,7 @@ export function AppDownload() {
               <div className="p-4 md:p-6 lg:p-8"> {/* Padding en el contenedor */}
                 <div className="relative h-96 md:h-full min-h-[500px] rounded-2xl overflow-hidden">
                   <Image 
-                    src="/corpo.jpeg" 
+                    src="/corpo2.png" 
                     alt="9M AI Corporation" 
                     fill 
                     className="object-cover rounded-2xl"
