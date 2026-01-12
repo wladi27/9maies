@@ -136,26 +136,49 @@ export default function ProductDetailsPage() {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-12">
-          <div>
-            <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary rounded-2xl overflow-hidden shadow-lg shadow-primary/20">
-              <div className="relative w-full" style={{ aspectRatio: '16/9' }}>
-                <Image
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  fill
-                  className="object-cover"
-                  priority
-                />
+        <div className="grid grid-cols-1 gap-12">
+          <div className="bg-gradient-to-br from-primary/10 to-purple-500/10 border border-primary rounded-2xl overflow-hidden shadow-lg shadow-primary/20">
+            <div className="flex flex-col md:flex-row">
+              <div className="md:w-1/2 w-full">
+                <div className="w-full h-64 md:h-full overflow-hidden bg-black">
+                  <Image
+                    src={product.image || "/placeholder.svg"}
+                    alt={product.name}
+                    width={1200}
+                    height={800}
+                    className="w-full h-full object-cover"
+                    priority
+                  />
+                </div>
               </div>
-              <div className="p-6">
-                <h1 className="text-3xl md:text-4xl font-bold mb-2">{product.name}</h1>
-                <p className="text-muted-foreground text-base md:text-lg">{product.description}</p>
+              <div className="p-6 md:p-8 md:w-1/2 flex flex-col justify-between">
+                <div>
+                  <h1 className="text-3xl md:text-4xl font-bold mb-4">{product.name}</h1>
+                  <p className="text-muted-foreground text-base md:text-lg mb-4">{product.description}</p>
+
+                  <h2 className="text-lg font-semibold text-foreground mt-4 mb-2">Descripción detallada</h2>
+                  <p className="text-muted-foreground text-sm mb-3">
+                    Información ampliada: esta sección ofrece más contexto sobre el producto, sus funcionalidades y
+                    cómo puede integrarse en tus flujos. Incluye características técnicas, beneficios para el usuario
+                    y ejemplos de uso práctico.
+                  </p>
+
+                  <h3 className="text-sm font-semibold text-foreground mb-2">Características</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm mb-4">
+                    <li>Soporte y seguridad de nivel empresarial.</li>
+                    <li>Integración con la app 9M AI y control total desde tu panel.</li>
+                    <li>Actualizaciones constantes y asistencia dedicada.</li>
+                  </ul>
+
+                  <h3 className="text-sm font-semibold text-foreground mb-2">Casos de uso</h3>
+                  <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm">
+                    <li>Usuarios que buscan automatizar decisiones de inversión.</li>
+                    <li>Empresas que requieren herramientas de análisis de mercados en tiempo real.</li>
+                    <li>Clientes que desean soluciones financieras con alta seguridad.</li>
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-          <div>
-            {/* Aquí puedes añadir acciones relacionadas (precio, botones) */}
           </div>
         </div>
       </div>

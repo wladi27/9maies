@@ -96,6 +96,30 @@ export function Footer() {
               >
                 <Instagram className="w-5 h-5" />
               </a>
+              <a
+                aria-label="YouTube - 9M AI"
+                href="https://www.youtube.com/@9M_AI_en_Español"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#FF0000] text-white shadow-sm shadow-black/10 hover:scale-[1.03] transition-all"
+              >
+                {/* Cambio aquí: SVG con icono blanco */}
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="w-5 h-5 text-white"
+                >
+                  <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+                  <path d="m10 15 5-3-5-3z" />
+                </svg>
+              </a>
             </div>
           </div>
         </div>
