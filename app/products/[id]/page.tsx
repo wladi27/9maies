@@ -8,6 +8,7 @@ import { ArrowLeft } from "lucide-react"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import Image from "next/image"
+import AcademySignupModal from '@/components/academy-signup-modal'
 import {
   Breadcrumb,
   BreadcrumbList,
@@ -176,6 +177,11 @@ export default function ProductDetailsPage() {
                     <li>Empresas que requieren herramientas de análisis de mercados en tiempo real.</li>
                     <li>Clientes que desean soluciones financieras con alta seguridad.</li>
                   </ul>
+                  {product._id === 'academia' && (
+                    <div className="mt-6">
+                      <AcademySignupModal productId={product._id} />
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
