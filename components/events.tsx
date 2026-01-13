@@ -3,7 +3,8 @@
 import Image from "next/image"
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { Card } from "@/components/ui/card"
-import { Calendar, MapPin } from "lucide-react"
+import { Calendar, MapPin, ArrowRight } from "lucide-react"
+import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { useMemo, useState } from "react"
@@ -185,7 +186,7 @@ export function Events() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16 pt-8">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground section-title">
               <span className="text-primary">Eventos</span> Globales
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
@@ -254,9 +255,18 @@ export function Events() {
                     </div>
 
                     <div className="pt-2 flex justify-end">
-                      <Button onClick={() => openModal(ev._id)} disabled={isClosed(ev.date)}>
-                        Asistir
-                      </Button>
+                      {isClosed(ev.date) ? (
+                        <Button variant="outline" disabled className="opacity-70">
+                          Cerrado
+                        </Button>
+                      ) : (
+                        <Link href={`/events/${ev._id}`} className="inline-block">
+                          <Button className="flex items-center gap-2">
+                            <span>Ver detalle</span>
+                            <ArrowRight className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </div>

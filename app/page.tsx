@@ -5,6 +5,7 @@ import { Events } from "@/components/events"
 import { Presentations } from "@/components/presentations"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
+import AppDownloadSmall from "@/components/app-download-small"
 
 export default function Home() {
   return (
@@ -15,7 +16,7 @@ export default function Home() {
       <Products />
       <Events />
       <Presentations />
-      
+      <AppDownloadSmall />
       <Footer />
       
     </main>

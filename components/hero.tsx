@@ -1,6 +1,6 @@
 "use client"
 
-import Image from "next/image"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Apple, Download } from "lucide-react"
 
@@ -57,39 +57,78 @@ export function Hero() {
               Empoderar a los usuarios para lograr el crecimiento financiero a través de la inteligencia artificial
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <a href="https://mzy4zmy3.chugewujin.com/TisCdi82IFuS7JN3?5c2f43=218ee5288dff190e7846e90271317d50" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-4 flex items-center">
-                  <Apple className="w-5 h-5 mr-2" />
-                  App Store
-                </Button>
-              </a>
-
-              <a href="https://9m-download.s3.ap-southeast-1.amazonaws.com/Android/apk/9M-Release-1.0.18(26).apk" target="_blank" rel="noopener noreferrer">
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-4 flex items-center">
-                  <Download className="w-5 h-5 mr-2" />
-                  Google Play
-                </Button>
-              </a>
-            </div>
+            
           </div>
 
-          {/* Right: App image */}
-          <div className="relative h-80 md:h-[500px] flex items-center justify-center">
-            <div className="relative w-full h-full max-w-md">
+          {/* Right: Carousel (replaces the static app image) - now 16/9 horizontal */}
+          <div className="relative w-full flex items-center justify-center">
+            <div className="relative w-full max-w-3xl lg:max-w-4xl">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-purple-500/10 rounded-3xl blur-xl"></div>
-              <div className="relative w-full h-full bg-gray-900/50 backdrop-blur-sm border-2 border-primary rounded-3xl overflow-hidden p-6">
-                <Image 
-                  src="/images/kv-402x.png" 
-                  alt="9M AI Mobile App" 
-                  fill 
-                  className="object-contain p-4" 
-                />
+              <div className="relative w-full bg-gray-900/50 backdrop-blur-sm border-4 border-primary rounded-3xl overflow-hidden shadow-lg">
+                {/* 16:9 container */}
+                <div className="w-full" style={{ aspectRatio: '16/9' }}>
+                  <div className="relative w-full h-full">
+                    <CarouselInner />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+  )
+}
+
+function CarouselInner() {
+  const eventImages = [
+    's1.jpeg','s2.png','s3.png','s4.png','s5.png','s6.png','s7.png','s8.png','s9.png','s10.png'
+  ]
+
+  const [currentSlide, setCurrentSlide] = useState(0)
+
+  useEffect(() => {
+    const t = setInterval(() => setCurrentSlide(s => (s + 1) % eventImages.length), 4500)
+    return () => clearInterval(t)
+  }, [])
+
+  const prev = () => setCurrentSlide(s => (s - 1 + eventImages.length) % eventImages.length)
+  const next = () => setCurrentSlide(s => (s + 1) % eventImages.length)
+
+  return (
+    <div className="relative w-full h-full">
+      <img
+        src={`/${eventImages[currentSlide]}`}
+        alt={`Slide ${currentSlide + 1}`}
+        className="absolute inset-0 w-full h-full object-cover"
+      />
+
+      <button
+        onClick={prev}
+        aria-label="Anterior"
+        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-20 hover:bg-black/60"
+      >
+        ‹
+      </button>
+
+      <button
+        onClick={next}
+        aria-label="Siguiente"
+        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 text-white p-3 rounded-full z-20 hover:bg-black/60"
+      >
+        ›
+      </button>
+
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-20">
+        {eventImages.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentSlide(i)}
+            className={`w-2 h-2 rounded-full ${i === currentSlide ? 'bg-primary' : 'bg-white/50'}`}
+            aria-label={`Ir a slide ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   )
 }

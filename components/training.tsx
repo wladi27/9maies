@@ -40,7 +40,7 @@ export function Training() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center space-y-4 mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground section-title">
                 <span className="text-primary">Entrenamiento</span> y Educación
               </h2>
               <p className="text-xl text-muted-foreground max-w-3xl mx-auto">

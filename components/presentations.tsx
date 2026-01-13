@@ -30,7 +30,7 @@ export function Presentations() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white section-title">
               <span className="text-purple-500">Presentaciones</span> y Recursos
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-purple-300 max-w-3xl mx-auto">

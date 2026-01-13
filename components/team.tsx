@@ -6,7 +6,7 @@ export function Team() {
     <section id="team" className="py-20 bg-secondary">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold">Nuestro equipo de instructores</h2>
+          <h2 className="text-3xl md:text-4xl font-bold section-title">Nuestro equipo de instructores</h2>
           <p className="text-muted-foreground mt-2">Profesionales con amplia experiencia en IA, finanzas y trading, comprometidos con tu aprendizaje y resultados.</p>
         </div>
 

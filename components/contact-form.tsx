@@ -57,7 +57,7 @@ export function ContactForm({ id }: { id?: string }) {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             {/* Left: Marketing / CTA */}
             <div className="flex flex-col justify-center p-6 bg-gradient-to-br from-primary/5 to-secondary/5 rounded-md">
-              <h2 className="text-3xl md:text-4xl font-extrabold">Comienza ahora</h2>
+              <h2 className="text-3xl md:text-4xl font-extrabold section-title">Comienza ahora</h2>
               <p className="mt-3 text-lg text-muted-foreground">Únete a cientos de usuarios que ya están aprovechando la IA para optimizar sus finanzas. Deja tus datos y nos pondremos en contacto contigo con una guía personalizada.</p>
 
               <ul className="mt-6 space-y-3">

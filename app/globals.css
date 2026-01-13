@@ -162,3 +162,38 @@
   }
 }
 
+/* Modern underline utility for section titles only */
+@layer utilities {
+  /* Apply the decorative underline only when authors mark a heading as a section title */
+  .section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.22rem;
+  }
+
+  .section-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0.36em;
+    width: 100%;
+    background: var(--primary);
+    border-radius: 0.35rem;
+    z-index: -1;
+    opacity: 0.16;
+    transform-origin: left;
+    transition: transform 220ms ease, opacity 220ms ease;
+  }
+
+  .section-title:hover::after {
+    transform: scaleX(1.02);
+    opacity: 0.22;
+  }
+
+  /* Slightly stronger accent for main section titles */
+  .section-title.main::after { height: 0.42em; opacity: 0.18; }
+  .section-title.secondary::after { height: 0.38em; }
+}
+
+

@@ -2,6 +2,7 @@ import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
+import VideosGrid from "@/components/videos-grid"
 
 export function AppDownload() {
   return (
@@ -12,7 +13,7 @@ export function AppDownload() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="p-8 md:p-12 space-y-6">
                 
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground">9M AI Corporation</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground section-title">9M AI Corporation</h2>
                 <p className="text-lg text-muted-foreground">
                   Somos una empresa fintech pionera que redefine la gestión patrimonial mediante inteligencia artificial de próxima generación.
                 </p>
@@ -59,6 +60,11 @@ export function AppDownload() {
               </div>
             </div>
           </Card>
+        </div>
+
+        {/* Videos relacionados: colocados justo debajo de la tarjeta de Corporations */}
+        <div className="max-w-6xl mx-auto mt-8">
+          <VideosGrid />
         </div>
       </div>
     </section>
