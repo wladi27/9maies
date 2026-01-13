@@ -55,6 +55,7 @@ export async function POST(req: NextRequest) {
     const db = client.db()
     const col = db.collection('academy_signups')
 
+    const now = new Date()
     const doc: any = {
       productId: productId || 'academia',
       email,
@@ -69,12 +70,13 @@ export async function POST(req: NextRequest) {
       codigoPatrocinador: sponsorCode,
       // keep legacy field if provided
       ...(codigoReferido ? { codigoReferido } : {}),
-      createdAt: new Date(),
+      createdAt: now,
+      registeredAt: now,
     }
 
     const result = await col.insertOne(doc)
 
-    return NextResponse.json({ message: 'Signed up', id: String(result.insertedId) }, { status: 201, headers })
+    return NextResponse.json({ message: 'Signed up', id: String(result.insertedId), registeredAt: now.toISOString() }, { status: 201, headers })
   } catch (err) {
     console.error('Academy signup error', err)
     return NextResponse.json({ error: 'Internal server error' }, { status: 500, headers })

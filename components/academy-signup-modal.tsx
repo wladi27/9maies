@@ -78,7 +78,7 @@ export default function AcademySignupModal({ productId = 'academia' }: { product
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Comienza hoy</Button>
+        <Button className="bg-primary text-primary-foreground hover:bg-primary/90">Regístrate hoy</Button>
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
