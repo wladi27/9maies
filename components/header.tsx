@@ -28,10 +28,10 @@ export function Header() {
           <div className="flex items-center gap-3">
             <button onClick={scrollToTop} aria-label="Ir al inicio" className="focus:outline-none">
               <Image
-                src="/logo.png"
-                alt="9M AI Logo"
-                width={80}
-                height={80}
+                src="/logo-new.png"
+                alt="9mx Logo"
+                width={120}
+                height={120}
                 className="object-contain"
                 style={{ background: 'transparent' }}
               />

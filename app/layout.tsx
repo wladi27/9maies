@@ -10,7 +10,7 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "9M AI - La IA que sabe cómo hacer crecer tu dinero",
+  title: "9mx - La IA que sabe cómo hacer crecer tu dinero",
   description: "Empoderar a los usuarios para lograr el crecimiento financiero a través de la IA",
   generator: "v0.app",
   icons: {

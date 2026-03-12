@@ -43,8 +43,8 @@ export function Training() {
               <h2 className="text-4xl md:text-5xl font-bold text-foreground section-title">
                 <span className="text-primary">Entrenamiento</span> y Educación
               </h2>
-              <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                Programas estructurados de liderazgo para impulsar tu crecimiento en el ecosistema 9M AI
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+                Programas estructurados de liderazgo para impulsar tu crecimiento en el ecosistema 9mx
               </p>
             </div>
 
@@ -57,8 +57,8 @@ export function Training() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
                     <GraduationCap className="w-8 h-8 text-primary" />
                   </div>
-                  <h3 className="text-3xl font-bold text-foreground">{content?.title || '9M AI ENTRENAMIENTO'}</h3>
-                  <p className="text-lg text-muted-foreground">{content?.subtitle || 'Cómo navegar el futuro de las finanzas: comprender la IA de 9M'}</p>
+                  <h3 className="text-3xl font-bold text-foreground">{content?.title || '9mx ENTRENAMIENTO'}</h3>
+                  <p className="text-lg text-muted-foreground">{content?.subtitle || 'Cómo navegar el futuro de las finanzas: comprender la IA de 9mx'}</p>
                   <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => setIsModalOpen(true)}>
                     {loading ? 'Cargando...' : 'Ver información completa'}
                   </Button>
@@ -68,7 +68,7 @@ export function Training() {
                     <div className="relative h-full w-auto min-w-[300px]">
                       <Image
                         src="/images/whatsapp-20image-202025-12-07-20at-2011.jpeg"
-                        alt={content?.title ? `${content.title} - imagen` : '9M AI Entrenamiento'}
+                        alt={content?.title ? `${content.title} - imagen` : '9mx Entrenamiento'}
                         fill
                         className="object-cover"
                         sizes="(max-width: 768px) 100vw, 50vw"
@@ -89,9 +89,9 @@ export function Training() {
       </section>
 
       <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
-            <DialogTitle className="text-2xl text-primary">{content?.title || '9M AI Entrenamiento'}</DialogTitle>
+            <DialogTitle className="text-2xl text-primary">{content?.title || '9mx Entrenamiento'}</DialogTitle>
           </DialogHeader>
 
           <Tabs defaultValue="horarios" className="w-full">
@@ -195,7 +195,7 @@ export function Training() {
                 <div className="space-y-4 text-muted-foreground">
                   <div dangerouslySetInnerHTML={{ __html: content?.info || `
                     <p>Nuestro programa de entrenamiento está diseñado para ayudarte a comprender y dominar el futuro de
-                    las finanzas a través de la inteligencia artificial de 9M.</p>
+                    las finanzas a través de la inteligencia artificial de 9mx.</p>
                     <p>Con sesiones semanales dirigidas por expertos de la industria, aprenderás estrategias avanzadas de
                     inversión, liderazgo de equipos y construcción de redes exitosas.</p>` }} />
                 </div>

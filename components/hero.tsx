@@ -47,7 +47,7 @@ export function Hero() {
           <div className="space-y-6 sm:space-y-8">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-primary via-purple-400 to-primary bg-clip-text text-transparent">
-                9M AI
+                9mx
               </span>
               <br />
               <span className="text-foreground">La IA que sabe cómo hacer crecer tu dinero</span>

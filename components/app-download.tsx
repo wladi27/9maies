@@ -13,7 +13,7 @@ export function AppDownload() {
             <div className="grid md:grid-cols-2 gap-8 items-center">
               <div className="p-8 md:p-12 space-y-6">
                 
-                <h2 className="text-3xl md:text-4xl font-bold text-foreground section-title">9M AI Corporation</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground section-title">9mx Corporation</h2>
                 <p className="text-lg text-muted-foreground">
                   Somos una empresa fintech pionera que redefine la gestión patrimonial mediante inteligencia artificial de próxima generación.
                 </p>
@@ -21,7 +21,7 @@ export function AppDownload() {
                 <p className="text-lg text-muted-foreground">Soluciones Clave:</p>
                 <ul className="list-disc pl-6 space-y-2 text-muted-foreground">
                   <li>
-                    <span className="text-foreground font-semibold">Fondo 9M AI:</span> Vehículo de inversión cuantitativa que asigna activos
+                    <span className="text-foreground font-semibold">Fondo 9mx:</span> Vehículo de inversión cuantitativa que asigna activos
                     de manera adaptativa en múltiples clases.
                   </li>
                   <li>
@@ -29,7 +29,7 @@ export function AppDownload() {
                     para clientes profesionales.
                   </li>
                   <li>
-                    <span className="text-foreground font-semibold">Academia 9M AI:</span> Programa formativo de élite para inversores.
+                    <span className="text-foreground font-semibold">Academia 9mx:</span> Programa formativo de élite para inversores.
                   </li>
                 </ul>
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -51,7 +51,7 @@ export function AppDownload() {
                 <div className="relative h-96 md:h-full min-h-[500px] rounded-2xl overflow-hidden">
                   <Image 
                     src="/corpo2.png" 
-                    alt="9M AI Corporation" 
+                    alt="9mx Corporation" 
                     fill 
                     className="object-cover rounded-2xl"
                     sizes="(max-width: 768px) 100vw, 50vw"
