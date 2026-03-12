@@ -2,13 +2,10 @@ import { Hero } from "@/components/hero"
 import { About } from "@/components/about"
 import { Products } from "@/components/products"
 import { Events } from "@/components/events"
-import { Team } from '@/components/team'
 import { Presentations } from "@/components/presentations"
-import { Training } from "@/components/training"
 import { Footer } from "@/components/footer"
-import { ContactForm } from '@/components/contact-form'
 import { Header } from "@/components/header"
-import { AppDownload } from "@/components/app-download"
+import AppDownloadSmall from "@/components/app-download-small"
 
 export default function Home() {
   return (
@@ -16,13 +13,10 @@ export default function Home() {
       <Header />
       <Hero />
       <About />
-      <Team />
       <Products />
       <Events />
       <Presentations />
-      <Training />
-      <AppDownload />
-      <ContactForm id="contact" />
+      <AppDownloadSmall />
       <Footer />
       
     </main>

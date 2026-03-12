@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import * as jose from 'jose'
 import { serialize } from 'cookie'
 import bcrypt from 'bcryptjs'
-import clientPromise from '../../../lib/mongodb'
+import clientPromise from '@/lib/mongodb'
 
 const JWT_SECRET = process.env.JWT_SECRET
 
