@@ -1,3 +1,5 @@
+import clientPromise from '@/lib/mongodb'
+import { ObjectId } from 'mongodb'
 import { getEventById } from '@/lib/events'
 import Image from 'next/image'
 import EventDetailClient from '@/components/event-detail-client'
@@ -23,8 +25,41 @@ import { Button } from '@/components/ui/button'
 export default async function Page({ params }: { params: Promise<{ id: string }> | { id: string } }) {
   const resolvedParams = (params && typeof (params as any).then === 'function') ? await params : params
   const { id } = resolvedParams as { id: string }
-  const event = getEventById(id)
-  if (!event) return notFound()
+  // Try to load event from MongoDB; fall back to static helper for legacy ids
+  let event: any = null
+  try {
+    const client = await clientPromise
+    const db = client.db()
+    const eventsColl = db.collection('events')
+    if (ObjectId.isValid(id)) {
+      event = await eventsColl.findOne({ _id: new ObjectId(id) })
+    }
+    // fallback: maybe the _id is a string slug used in static data
+    if (!event) {
+      event = await eventsColl.findOne({ _id: id })
+    }
+  } catch (err) {
+    // ignore DB errors and fallback to static list
+    // eslint-disable-next-line no-console
+    console.error('DB load event error', err)
+  }
+
+  if (!event) {
+    // fallback to in-repo static events list for dev or seeded content
+    const staticEvent = getEventById(id)
+    if (!staticEvent) return notFound()
+    event = staticEvent
+  }
+
+  // Normalize event for safe serialization to client components
+  const normalizedEvent = {
+    ...event,
+    _id: event._id ? String(event._id) : '',
+    date: event.date ? (typeof event.date === 'string' ? event.date : new Date(event.date).toISOString()) : null,
+    createdAt: event.createdAt ? (typeof event.createdAt === 'string' ? event.createdAt : new Date(event.createdAt).toISOString()) : undefined,
+  }
+  // use normalized event for rendering (plain properties only)
+  event = normalizedEvent as any
 
   return (
     <main className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-900 to-black text-gray-100">

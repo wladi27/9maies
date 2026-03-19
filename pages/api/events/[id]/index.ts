@@ -1,6 +1,60 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import clientPromise from '@/lib/mongodb'
 import { ObjectId } from 'mongodb'
+import crypto from 'crypto'
+
+function extractCloudinaryPublicId(url: string) {
+  try {
+    const u = new URL(url)
+    // path after /upload/
+    const parts = u.pathname.split('/upload/')
+    if (parts.length < 2) return null
+    let rest = parts[1] // may contain v123/.../public_id.ext
+    // remove version prefix like v1234567890/
+    rest = rest.replace(/^v\d+\//, '')
+    // remove extension
+    const idx = rest.lastIndexOf('.')
+    if (idx !== -1) rest = rest.slice(0, idx)
+    return rest
+  } catch (err) {
+    return null
+  }
+}
+
+async function destroyCloudinaryImage(publicId: string) {
+  const cloudName = process.env.CLOUDINARY_CLOUD_NAME
+  const apiKey = process.env.CLOUDINARY_API_KEY
+  const apiSecret = process.env.CLOUDINARY_API_SECRET
+  if (!cloudName || !apiKey || !apiSecret) {
+    // not configured
+    console.warn('Cloudinary not configured for delete (missing env vars)')
+    return false
+  }
+
+  const timestamp = Math.floor(Date.now() / 1000)
+  const signatureBase = `public_id=${publicId}&timestamp=${timestamp}${apiSecret}`
+  const signature = crypto.createHash('sha1').update(signatureBase).digest('hex')
+
+  const form = new URLSearchParams()
+  form.append('public_id', publicId)
+  form.append('api_key', apiKey)
+  form.append('timestamp', String(timestamp))
+  form.append('signature', signature)
+
+  const resp = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/destroy`, {
+    method: 'POST',
+    body: form.toString(),
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  })
+  const data = await resp.json()
+  if (!resp.ok || !(data.result === 'ok' || data.result === 'not_found')) {
+    // log for debugging
+    // eslint-disable-next-line no-console
+    console.error('Cloudinary delete response', { status: resp.status, data })
+    return false
+  }
+  return true
+}
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { id } = req.query
@@ -28,6 +82,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       if (location !== undefined) update.location = location
       if (featuredImage !== undefined) update.featuredImage = featuredImage
 
+      // support storing featuredPublicId when provided
+      if ((req.body && req.body.featuredPublicId) !== undefined) update.featuredPublicId = req.body.featuredPublicId
+
       const result = await events.findOneAndUpdate(
         { _id: new ObjectId(id) },
         { $set: update },
@@ -40,7 +97,36 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     if (req.method === 'DELETE') {
       // remove event and its participants
       const participants = db.collection('participants')
+      const event = await events.findOne({ _id: new ObjectId(id) })
+
+      // delete participants
       await participants.deleteMany({ eventId: new ObjectId(id) })
+
+      // attempt to delete cloudinary image if present
+      try {
+        let publicId: string | null = null
+        if (event?.featuredPublicId && typeof event.featuredPublicId === 'string') {
+          publicId = event.featuredPublicId
+          // eslint-disable-next-line no-console
+          console.log('Using stored featuredPublicId for Cloudinary delete', publicId)
+        } else if (event?.featuredImage && typeof event.featuredImage === 'string') {
+          publicId = extractCloudinaryPublicId(event.featuredImage)
+          // eslint-disable-next-line no-console
+          console.log('Extracted publicId from featuredImage', publicId)
+        }
+
+        if (publicId) {
+          const ok = await destroyCloudinaryImage(publicId)
+          if (!ok) {
+            // eslint-disable-next-line no-console
+            console.error('Cloudinary reported failure deleting publicId', publicId)
+          }
+        }
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.error('Cloudinary delete failed', err)
+      }
+
       await events.deleteOne({ _id: new ObjectId(id) })
       return res.status(204).end()
     }

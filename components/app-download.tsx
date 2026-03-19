@@ -2,7 +2,6 @@ import Image from "next/image"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
-import VideosGrid from "@/components/videos-grid"
 
 export function AppDownload() {
   return (
@@ -62,10 +61,7 @@ export function AppDownload() {
           </Card>
         </div>
 
-        {/* Videos relacionados: colocados justo debajo de la tarjeta de Corporations */}
-        <div className="max-w-6xl mx-auto mt-8">
-          <VideosGrid />
-        </div>
+        {/* Videos relacionados: moved to About section below licenses */}
       </div>
     </section>
   )

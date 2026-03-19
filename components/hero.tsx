@@ -50,7 +50,7 @@ export function Hero() {
                 9mx
               </span>
               <br />
-              <span className="text-foreground">La IA que sabe cómo hacer crecer tu dinero</span>
+              <span className="text-foreground">La compañía que sabe cómo hacer crecer tu dinero</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">

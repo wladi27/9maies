@@ -7,7 +7,7 @@ import { Calendar, MapPin, ArrowRight } from "lucide-react"
 import Link from 'next/link'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { useMemo, useState } from "react"
+import { useMemo, useState, useEffect } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
@@ -65,34 +65,30 @@ function formatDateTime(dateStr: string | null) {
 }
 
 export function Events() {
-  // Eventos estáticos
-  const now = new Date()
-  const events: Event[] = [
-    {
-      _id: 'evt-1',
-      title: 'Evento en Panamá',
-      description: 'Estrategias cuantitativas, IA aplicada y gestión patrimonial de próxima generación. ',
-      date: new Date(2026, 0, 8, 18, 30, 0).toISOString(), // 08 enero 2026 (inicio 18:30)
-      location: 'RENAISSANCE Panamá City Hotel. Vía España Calle Ricardo Arias. Ciudad de Panamá. Frente a la Autoridad de Pasaportes, Panamá.',
-  featuredImage: '/images/panama-evento.png',
-    },
-    {
-      _id: 'evt-2',
-      title: 'Evento en Dubái EAU',
-      description: 'Casos reales de automatización de carteras. Del 6 al 9 de febrero de 2026.',
-      date: new Date(2026, 1, 6, 10, 0, 0).toISOString(), // inicio 06 febrero 2026
-      location: 'Por definir',
-  featuredImage: '/images/dubai-evento.png',
-    },
-    {
-      _id: 'evt-3',
-      title: 'Evento en México',
-      description: 'Arquitectura de datos, señales y ejecución autónoma en múltiples mercados.',
-  date: new Date(2025, 11, 17, 16, 0, 0).toISOString(), // 17 diciembre 2025
-      location: 'Ciudad de México, México',
-  featuredImage: '/images/mexico-evento.png',
-    },
-  ]
+  const [events, setEvents] = useState<Event[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
+  const [error, setError] = useState<string | null>(null)
+
+  // fetch events from API
+  async function loadEvents() {
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch('/api/events?limit=20')
+      if (!res.ok) throw new Error('Failed to fetch')
+      const data = await res.json()
+      setEvents((data && data.items) ? data.items : [])
+    } catch (err: any) {
+      console.error('Events load error', err)
+      setError(err?.message || 'Error cargando eventos')
+      setEvents([])
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  // load once on mount
+  useEffect(() => { loadEvents() }, [])
   // Modal state
   const [openEventId, setOpenEventId] = useState<string | null>(null)
   const [formName, setFormName] = useState('')
@@ -195,28 +191,33 @@ export function Events() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {threeEvents && threeEvents.length === 0 && <div>No hay eventos disponibles.</div>}
-            {threeEvents && threeEvents.map((ev) => (
+            {loading && (
+              <div className="col-span-3 text-center py-12">Cargando eventos...</div>
+            )}
+            {!loading && error && (
+              <div className="col-span-3 text-center py-12 text-destructive">{error}</div>
+            )}
+            {!loading && !error && threeEvents.length === 0 && (
+              <div className="col-span-3 text-center py-12">No hay eventos disponibles.</div>
+            )}
+            {!loading && !error && threeEvents.map((ev) => (
               <Card
                 key={ev._id}
                 className="bg-card border border-primary overflow-hidden shadow-lg shadow-primary/20 transition-all flex flex-col p-0"
               >
                 <div>
-                  <div className="relative bg-gradient-to-br from-primary/20 via-purple-400/15 to-secondary/20">
-                    <AspectRatio ratio={9 / 16}>
-                      {ev.featuredImage ? (
-                        <Image
-                          src={ev.featuredImage}
-                          alt={ev.title}
-                          fill
-                          className="object-contain object-center"
-                          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
-                          priority={false}
-                          onLoadingComplete={(img) => {
-                            // Ya no ajustamos la relación: todos usan 3:4 fijo para uniformidad
-                          }}
-                        />
-                      ) : (
+                  <div className="relative bg-gradient-to-br from-primary/20 via-purple-400/15 to-secondary/20 p-1">
+                                    <AspectRatio ratio={3 / 4}>
+                                      {ev.featuredImage ? (
+                                        <Image
+                                          src={ev.featuredImage}
+                                          alt={ev.title}
+                                          fill
+                                          className="object-cover object-center group-hover:scale-105 transition-transform duration-300"
+                                          sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 100vw"
+                                          priority={false}
+                                        />
+                                      ) : (
                         <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
                           <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center">
                             <Calendar className="w-6 h-6 text-primary" />

@@ -89,7 +89,7 @@ export function Footer() {
               </a>
               <a
                 aria-label="Instagram - 9mx"
-                href="https://www.instagram.com/9mxenespanol/"
+                href="https://www.instagram.com/9mx_esp?igsh=cTdrbWw5aWtsNnJr"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-sm shadow-black/10 hover:scale-[1.03] transition-all"

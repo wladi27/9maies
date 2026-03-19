@@ -23,7 +23,8 @@ interface Product {
   name: string;
   description: string;
   price: number;
-  image: string;
+  image?: string | null;
+  featuredImage?: string | null;
 }
 
 export default function ProductDetailsPage() {
@@ -72,7 +73,15 @@ export default function ProductDetailsPage() {
         const res = await fetch(`/api/products/${id}`)
         if (res.ok) {
           const data = await res.json()
-          if (!cancelled) setProduct(data as Product)
+          const normalized: Product = {
+            _id: String(data._id || id),
+            name: data.name || data.title || '',
+            description: data.description || '',
+            price: typeof data.price === 'number' ? data.price : (data.price ? Number(data.price) : 0),
+            featuredImage: data.featuredImage || data.image || null,
+            image: data.featuredImage || data.image || null,
+          }
+          if (!cancelled) setProduct(normalized)
           return
         }
       } catch (_err) {

@@ -54,7 +54,7 @@ export function AppDownloadSmall() {
                             <div 
                               className="absolute inset-0 bg-cover bg-center"
                               style={{
-                                backgroundImage: `url('/images/kv-402x.png')`,
+                                backgroundImage: `url('/5028682508165385273.jpg')`,
                                 filter: 'brightness(0.8) saturate(1.2)'
                               }}
                             ></div>
@@ -117,21 +117,21 @@ export function AppDownloadSmall() {
 
                     {/* Botones */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
-                      <a href="https://mzy4zmy3.chugewujin.com/TisCdi82IFuS7JN3?5c2f43=218ee5288dff190e7846e90271317d50" className="group">
+                      <a href="https://zta4y.lahuafa.com/5dUj/1BvqDkOpT1APl7kx3" className="group">
                         <Button className="w-full gap-2 h-10 bg-gray-800 hover:bg-gray-700 text-gray-200 border border-gray-700 hover:border-[color:var(--primary)] hover:text-white transition-all duration-300">
                           <svg className="w-4 h-4" viewBox="0 0 512 512" fill="currentColor">
                             <path d="M349.6 69.6c-30.6 1.2-67.6 20.2-89.6 45.7-19.6 23.1-36.6 59-30.2 93.1 31 .9 63.5-17.2 84-41.9 21.4-25.8 37.7-61 36-92.9zM407 176.2c-1.9-40.4-21.5-71.4-45.1-95.2-23.3-23.3-56.3-39.2-92.8-39.6-36.3-.4-68 17.6-90 44.4-26.4 32-37.2 78.8-21.9 121.5 20.1 51.7 72.7 88.6 130.1 88.6 25.8 0 51.1-6.6 72.3-18.6 24.6-13.7 45.8-36.6 47.4-76.3 1.1-31.1-11.1-64.3-99.9-124.8 0 0 62.2 69.9 58.9 143.2z"/>
                           </svg>
-                          <span className="text-sm font-medium">App Store</span>
+                          <span className="text-sm font-medium">iOS</span>
                         </Button>
                       </a>
                       
-                      <a href="https://9m-download.s3.ap-southeast-1.amazonaws.com/Android/apk/9M-Release-1.0.18(26).apk" className="group">
+                      <a href="https://9m-download.s3.ap-southeast-1.amazonaws.com/Android/apk/9MX-Release-2.2.1(33).apk" className="group">
                         <Button className="w-full gap-2 h-10 bg-[color:var(--primary)] hover:brightness-95 text-white transition-all duration-300 shadow-lg">
                           <svg className="w-4 h-4" viewBox="0 0 512 512" fill="currentColor">
                             <path d="M325.3 234.3c-6.8-4.5-15.2-7.2-26.1-7.2-10.8 0-19.8 2.7-26.4 7.2-6.8 4.6-13 12.5-18.7 23.8-5.9 11.7-8.9 22.3-8.9 31.6 0 9.5 3.1 19.9 9.3 32 6.2 12.1 13.9 20 22.9 23.6 9 3.7 18.6 5.6 29.2 5.6 11.1 0 19.7-1.9 26.1-5.6 6.4-3.6 12-11.6 16.8-23.7 4.9-12.4 7.4-23 7.4-32.6 0-9.4-2.5-20.1-7.5-31.8-5.1-11.8-11.2-20-17.6-24.5z"/>
                           </svg>
-                          <span className="text-sm font-medium">Google Play</span>
+                          <span className="text-sm font-medium">Android</span>
                         </Button>
                       </a>
                     </div>

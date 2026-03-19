@@ -15,10 +15,10 @@ export function Presentations() {
     title: string
   } | null>(null)
 
-  const PRESENTATION_EMBED = "https://www.youtube.com/embed/oyYnTz_k3Zo"
-  const PRESENTATION_WATCH = "https://www.youtube.com/watch?v=oyYnTz_k3Zo"
-  const COMP_PLAN_EMBED = "https://www.youtube.com/embed/p2mxYs_7auc"
-  const COMP_PLAN_WATCH = "https://www.youtube.com/watch?v=p2mxYs_7auc"
+  const PRESENTATION_EMBED = "https://www.youtube.com/embed/Q7Aro1Vv6aU"
+  const PRESENTATION_WATCH = "https://www.youtube.com/watch?v=Q7Aro1Vv6aU"
+  const COMP_PLAN_EMBED = "https://www.youtube.com/embed/z7lWV-EVWAg"
+  const COMP_PLAN_WATCH = "https://www.youtube.com/watch?v=z7lWV-EVWAg"
 
   function openVideo(embed: string, watch: string, title: string) {
     const withParams = `${embed}?autoplay=1&rel=0&modestbranding=1`
@@ -48,12 +48,12 @@ export function Presentations() {
                     <div className="aspect-video rounded-2xl overflow-hidden border-4 border-primary/50 shadow-2xl">
                       <div className="relative h-full w-full bg-black">
                         <Image
-                          src="/images/whatsapp-20image-202025-12-07-20at-2012.jpeg"
+                          src="/presentacio_9mx.png"
                           alt="9mx Presentacion"
                           fill
-                          className="object-contain p-4"
+                          className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
-                          priority
+                          priority={false}
                         />
                       </div>
                     </div>
@@ -94,7 +94,7 @@ export function Presentations() {
                       </Button>
                       <Button asChild variant="outline" className="border-[color:var(--primary)] text-white hover:bg-[rgba(0,0,0,0.32)] px-6">
                         <a
-                          href="/pdf/9M AI - La AI que sabe cómo hacer crecer tu dinero - Español.pdf"
+                          href="/pdf/9MX PRESENTACION General.pdf"
                           download
                           target="_blank"
                           rel="noopener noreferrer"
@@ -117,7 +117,7 @@ export function Presentations() {
                     <div className="aspect-video rounded-2xl overflow-hidden border-4 border-primary/50 shadow-2xl">
                       <div className="relative h-full w-full bg-black">
                         <Image
-                          src="/plan-1.png"
+                          src="/plan_9mx.png"
                           alt="Plan de compensación 9mx"
                           fill
                           className="object-cover"
@@ -161,7 +161,7 @@ export function Presentations() {
                       </Button>
                       <Button asChild variant="outline" className="border-[color:var(--primary)] text-white hover:bg-[rgba(0,0,0,0.32)] px-6">
                         <a
-                          href="https://drive.google.com/file/d/1TjmnDbbo_6WdfSF1bGvqTWTXHVqHZU6W/view"
+                          href="/pdf/Plan de Compensacion 9MX - Completa.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
