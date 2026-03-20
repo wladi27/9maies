@@ -61,8 +61,7 @@ export function About() {
               </span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Fundada en Nueva York por ex ejecutivos de Goldman Sachs, científicos de IA de la Universidad de Columbia
-              e ingenieros cuantitativos de primer nivel
+              9MX fue fundada en Nueva York como una empresa de tecnología financiera, establecida por un grupo de profesionales experimentados provenientes de los mercados financieros globales, la investigación cuantitativa y la ingeniería tecnológica.
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export function About() {
             <div className="relative z-10">
               <p className="text-2xl text-foreground mb-6 font-light leading-relaxed">
                 <span className="font-semibold text-primary">9mx</span> es una empresa fintech pionera que redefine la 
-                gestión patrimonial mediante inteligencia artificial de próxima generación.
+                gestión patrimonial mediante generación financiera de próxima generación.
               </p>
               
               <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">

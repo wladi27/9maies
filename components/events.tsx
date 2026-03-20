@@ -69,12 +69,12 @@ export function Events() {
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
 
-  // fetch events from API
+  // fetch events from API (limit 4)
   async function loadEvents() {
     setLoading(true)
     setError(null)
     try {
-      const res = await fetch('/api/events?limit=20')
+      const res = await fetch('/api/events?limit=4')
       if (!res.ok) throw new Error('Failed to fetch')
       const data = await res.json()
       setEvents((data && data.items) ? data.items : [])
@@ -162,7 +162,7 @@ export function Events() {
     }
   }
 
-  const threeEvents = useMemo(() => events.slice(0, 3), [events])
+  const fourEvents = useMemo(() => events.slice(0, 4), [events])
   const selectedEvent = useMemo(() => {
     if (!openEventId) return null
     return events.find((e) => e._id === openEventId) ?? null
@@ -183,24 +183,24 @@ export function Events() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16 pt-8">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground section-title">
-              <span className="text-primary">Eventos</span> Globales
+              <span className="text-primary">Eventos</span> y Promociones
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
               Participa en nuestros eventos internacionales y confirma tu asistencia dejando tu correo.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8">
             {loading && (
-              <div className="col-span-3 text-center py-12">Cargando eventos...</div>
+              <div className="col-span-4 text-center py-12">Cargando eventos...</div>
             )}
             {!loading && error && (
-              <div className="col-span-3 text-center py-12 text-destructive">{error}</div>
+              <div className="col-span-4 text-center py-12 text-destructive">{error}</div>
             )}
-            {!loading && !error && threeEvents.length === 0 && (
-              <div className="col-span-3 text-center py-12">No hay eventos disponibles.</div>
+            {!loading && !error && fourEvents.length === 0 && (
+              <div className="col-span-4 text-center py-12">No hay eventos disponibles.</div>
             )}
-            {!loading && !error && threeEvents.map((ev) => (
+            {!loading && !error && fourEvents.map((ev) => (
               <Card
                 key={ev._id}
                 className="bg-card border border-primary overflow-hidden shadow-lg shadow-primary/20 transition-all flex flex-col p-0"

@@ -54,7 +54,7 @@ export function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Empoderar a los usuarios para lograr el crecimiento financiero a través de la inteligencia artificial
+              Empoderar a los usuarios para lograr el crecimiento financiero a través de la compañia 9mx.
             </p>
 
             
