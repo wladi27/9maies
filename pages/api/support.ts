@@ -23,7 +23,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         email: "hello@www.xn--9maienespaol-jhb.com",
         name: "9mx Soporte",
       },
-      to: [{ email: "wtvapp.27@gmail.com" }], // Cambia al email que necesites
+      to: [{ email: "gsabusinesses@gmail.com" }], // Cambia al email que necesites
       subject: "Solicitud de Atención al Cliente - 9mx",
       text: `ID de cuenta: ${accountId}\nNombre: ${fullName}\nEmail: ${email}`,
       html: `
