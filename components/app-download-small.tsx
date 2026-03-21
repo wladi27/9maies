@@ -221,7 +221,7 @@ export function AppDownloadSmall() {
                         <Mail className="w-6 h-6 text-primary" />
                       </div>
                       <div>
-                        <h3 className="text-xl font-bold text-white">Soporte 24/7</h3>
+                        <h3 className="text-xl font-bold text-white">Soporte Técnico 24/7</h3>
                         <p className="text-sm text-gray-400">Déjanos tus datos y te contactamos</p>
                       </div>
                     </div>
