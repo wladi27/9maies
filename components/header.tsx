@@ -46,6 +46,9 @@ export function Header() {
             <Button size="sm" onClick={() => scrollToSection("presentations")}>Presentaciones</Button>
             <div className="flex items-center gap-4">
               <Button className="bg-primary text-primary-foreground hover:bg-primary/90" onClick={() => scrollToSection('products')}>Comenzar</Button>
+              <Button asChild size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+                <a href="https://www.9mc.org/es-ES/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a>
+              </Button>
             </div>
           </nav>
 
@@ -65,6 +68,9 @@ export function Header() {
             <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("events")}>Eventos</Button>
             <Button className="text-left w-full" size="sm" onClick={() => scrollToSection("presentations")}>Presentaciones</Button>
             <Button className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" onClick={() => scrollToSection('products')}>Comenzar</Button>
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" size="sm">
+              <a href="https://www.9mc.org/es-ES/" target="_blank" rel="noopener noreferrer">Iniciar sesión</a>
+            </Button>
           </nav>
         )}
       </div>

@@ -76,30 +76,28 @@ export function Presentations() {
                       tecnología de inteligencia artificial de última generación.
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="bg-gradient-to-br from-primary/70 to-primary/50 p-3 rounded-lg border border-primary/30">
-                        <div className="text-sm font-semibold text-white">IA Predictiva</div>
-                        <div className="text-xs text-white">Análisis de mercados</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-primary/70 to-primary/50 p-3 rounded-lg border border-primary/30">
-                        <div className="text-sm font-semibold text-white">Gestión Automatizada</div>
-                        <div className="text-xs text-white">Portafolios inteligentes</div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-3">
-                      <Button onClick={() => openVideo(PRESENTATION_EMBED, PRESENTATION_WATCH, "Presentación 9mx")} className="bg-[color:var(--primary)] text-white hover:brightness-90 px-6 shadow-lg">
-                        <Play className="w-4 h-4 mr-2" />
+                    <div className="flex flex-wrap gap-4">
+                      <Button 
+                        size="lg" 
+                        onClick={() => openVideo(PRESENTATION_EMBED, PRESENTATION_WATCH, "Presentación 9mx")} 
+                        className="bg-[color:var(--primary)] text-white hover:brightness-90 text-lg px-8 py-6 shadow-lg"
+                      >
+                        <Play className="w-5 h-5 mr-2" />
                         Ver presentación
                       </Button>
-                      <Button asChild variant="outline" className="border-[color:var(--primary)] text-white hover:bg-[rgba(0,0,0,0.32)] px-6">
+                      <Button 
+                        size="lg" 
+                        asChild 
+                        variant="outline" 
+                        className="border-[color:var(--primary)] text-white hover:bg-[rgb(214,209,209)] text-lg px-8 py-6"
+                      >
                         <a
                           href="/pdf/9MX PRESENTACION General.pdf"
                           download
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <Download className="w-4 h-4 mr-2" />
+                          <Download className="w-5 h-5 mr-2" />
                           Descargar PDF
                         </a>
                       </Button>
@@ -143,29 +141,27 @@ export function Presentations() {
                       Incluye ejemplos de pagos y la estructura de progreso para cada rango.
                     </p>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      <div className="bg-gradient-to-br from-primary/70 to-primary/50 p-3 rounded-lg border border-primary/30">
-                        <div className="text-sm font-semibold text-white">Bonos directos</div>
-                        <div className="text-xs text-white">Comisiones por referidos</div>
-                      </div>
-                      <div className="bg-gradient-to-br from-primary/70 to-primary/50 p-3 rounded-lg border border-primary/30">
-                        <div className="text-sm font-semibold text-white">Rangos y tiers</div>
-                        <div className="text-xs text-white">Metas claras y acumulables</div>
-                      </div>
-                    </div>
-
-                    <div className="flex flex-wrap gap-3">
-                      <Button onClick={() => openVideo(COMP_PLAN_EMBED, COMP_PLAN_WATCH, "Plan de compensación 9mx")} className="bg-[color:var(--primary)] text-white hover:brightness-90 px-6 shadow-lg">
-                        <Play className="w-4 h-4 mr-2" />
+                    <div className="flex flex-wrap gap-4">
+                      <Button 
+                        size="lg" 
+                        onClick={() => openVideo(COMP_PLAN_EMBED, COMP_PLAN_WATCH, "Plan de compensación 9mx")} 
+                        className="bg-[color:var(--primary)] text-white hover:brightness-90 text-lg px-8 py-6 shadow-lg"
+                      >
+                        <Play className="w-5 h-5 mr-2" />
                         Ver plan
                       </Button>
-                      <Button asChild variant="outline" className="border-[color:var(--primary)] text-white hover:bg-[rgba(0,0,0,0.32)] px-6">
+                      <Button 
+                        size="lg" 
+                        asChild 
+                        variant="outline" 
+                        className="border-[color:var(--primary)] text-white hover:bg-[rgb(214,209,209)] text-lg px-8 py-6"
+                      >
                         <a
                           href="/pdf/Plan de Compensacion 9MX - Completa.pdf"
                           target="_blank"
                           rel="noopener noreferrer"
                         >
-                          <FileText className="w-4 h-4 mr-2" />
+                          <FileText className="w-5 h-5 mr-2" />
                           Descargar PDF
                         </a>
                       </Button>

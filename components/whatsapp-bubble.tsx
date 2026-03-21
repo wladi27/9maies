@@ -10,7 +10,7 @@ export function WhatsappBubble() {
 
   return (
     <a
-      href="https://wa.me/34614211245"
+      href="https://wa.me/+50769604272"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Abrir chat de WhatsApp"
