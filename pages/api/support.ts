@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             <p style="margin:0 0 16px;color:#333">Has recibido una nueva solicitud desde el formulario de soporte.</p>
             <table style="width:100%;border-collapse:collapse">
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600;width:160px">ID de cuenta</td><td style="padding:8px;border-top:1px solid #f0f0f0">${accountId}</td></tr>
-              <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Nombre</td><td style="padding:8px;border-top:1px solid #f0f0f0">${fullName}</td></tr>
+              <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Nombre Completo</td><td style="padding:8px;border-top:1px solid #f0f0f0">${fullName}</td></tr>
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Email</td><td style="padding:8px;border-top:1px solid #f0f0f0">${email}</td></tr>
             </table>
             <p style="margin:18px 0 0;color:#666;font-size:13px">Mensaje enviado desde el sistema de soporte de <strong>9mx</strong>.</p>

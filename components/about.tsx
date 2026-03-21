@@ -80,7 +80,7 @@ export function About() {
                 {[
                   { value: "$2.5B+", label: "Activos Gestionados" },
                   { value: "15+", label: "Años de Experiencia" },
-                  { value: "50K+", label: "Clientes Activos" },
+                  { value: "220K+", label: "Usuarios activos" },
                   { value: "99.9%", label: "Precisión IA" },
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
