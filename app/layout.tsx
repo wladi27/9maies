@@ -10,21 +10,21 @@ const _geist = Geist({ subsets: ["latin"] })
 const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "9MX - La IA que sabe cómo hacer crecer tu dinero",
-  description: "Empoderar a los usuarios para lograr el crecimiento financiero a través de la IA",
-  generator: "v0.app",
+  title: "9MX - La compañia que sabe cómo hacer crecer tu dinero",
+  description: "Empoderar a los usuarios para lograr el crecimiento financiero.",
+  generator: "Next.js",
   icons: {
     icon: [
       {
-        url: "/9M-favicon.png",
+        url: "/new-icon.png",
         media: "(prefers-color-scheme: light)",
       },
       {
-        url: "/9M-favicon.png",
+        url: "/new-icon.png",
         media: "(prefers-color-scheme: dark)",
       },
       {
-        url: "/9M-favicon.png",
+        url: "/new-icon.png",
         type: "image/svg+xml",
       },
     ]

@@ -11,7 +11,8 @@ export function AppDownloadSmall() {
   const [formData, setFormData] = useState({
     accountId: '',
     fullName: '',
-    email: ''
+    email: '',
+    message: ''
   })
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -28,7 +29,7 @@ export function AppDownloadSmall() {
       const json = await res.json().catch(() => ({ message: res.statusText }))
       
       if (res.ok) {
-        setFormData({ accountId: '', fullName: '', email: '' })
+        setFormData({ accountId: '', fullName: '', email: '', message: '' })
         toast({ 
           title: '✅ Correo enviado', 
           description: 'Tu mensaje fue enviado correctamente. Te contactaremos pronto.',
@@ -52,7 +53,7 @@ export function AppDownloadSmall() {
     }
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -235,6 +236,22 @@ export function AppDownloadSmall() {
                           required 
                           className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white placeholder-gray-500 transition-all duration-200"
                           placeholder="tu@email.com"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <label className="flex items-center gap-2 text-sm font-medium text-gray-300">
+                          <Mail className="w-4 h-4 text-primary" />
+                          ¿Cuál es el problema o comentario?
+                        </label>
+                        <textarea
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          required
+                          rows={4}
+                          className="w-full px-4 py-3 rounded-xl bg-gray-800/50 border border-gray-700 focus:border-primary focus:ring-2 focus:ring-primary/20 text-white placeholder-gray-500 transition-all duration-200 resize-y"
+                          placeholder="Describe el problema o deja tu comentario aquí"
                         />
                       </div>
                       

@@ -7,7 +7,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' })
   }
 
-  const { accountId, fullName, email } = req.body || {}
+  const { accountId, fullName, email, message } = req.body || {}
   if (!accountId || !fullName || !email) {
     return res.status(400).json({ message: 'Missing fields' })
   }
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
       to: [{ email: "gsabusinesses@gmail.com" }], // Cambia al email que necesites
       subject: "Solicitud de Atención al Cliente - 9MX",
-      text: `ID de cuenta: ${accountId}\nNombre: ${fullName}\nEmail: ${email}`,
+      text: `ID de cuenta: ${accountId}\nNombre: ${fullName}\nEmail: ${email}\nMensaje: ${message || ''}`,
       html: `
         <div style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color: #111;">
           <div style="max-width:600px;margin:0 auto;padding:20px;border:1px solid #eee;border-radius:8px;background:#fff">
@@ -35,6 +35,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600;width:160px">ID de cuenta</td><td style="padding:8px;border-top:1px solid #f0f0f0">${accountId}</td></tr>
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Nombre Completo</td><td style="padding:8px;border-top:1px solid #f0f0f0">${fullName}</td></tr>
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Email</td><td style="padding:8px;border-top:1px solid #f0f0f0">${email}</td></tr>
+              ${message ? `<tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Mensaje</td><td style="padding:8px;border-top:1px solid #f0f0f0">${message}</td></tr>` : ''}
             </table>
             <p style="margin:18px 0 0;color:#666;font-size:13px">Mensaje enviado desde el sistema de soporte de <strong>9MX</strong>.</p>
           </div>
