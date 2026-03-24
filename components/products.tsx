@@ -44,29 +44,29 @@ export function Products() {
   const defaultProducts: Product[] = [
     {
       _id: 'academia',
-      name: 'Academia 9mx',
+      name: 'Academia 9MX',
       description: 'Programa formativo de élite para inversores: cursos, certificaciones y casos prácticos para dominar la inversión con IA.',
       price: 0.0,
       image: '/img/academia_9mx.jpg'
     },
     {
       _id: '9mx-x-Coinstore',
-      name: '9mx x Coinstore',
-      description: 'Motor de IA financiera de 9mx que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.',
+      name: '9MX x Coinstore',
+      description: 'Motor de IA financiera de 9MX que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.',
       price: 49.99,
       image: '/images/novamind.png'
     },
     {
       _id: 'tarjeta-visa',
       name: 'Tarjeta Visa',
-      description: 'Tarjeta Visa co‑brandeada con 9mx para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.',
+      description: 'Tarjeta Visa co‑brandeada con 9MX para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.',
       price: 9.99,
       image: '/5028682508165385272.jpg'
     },
     {
       _id: 'exchange',
       name: 'Intercambio',
-      description: 'Plataforma Exchange de 9mx para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.',
+      description: 'Plataforma Exchange de 9MX para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.',
       price: 0.0,
       image: '/images/intercambio.png'
     },
@@ -114,9 +114,9 @@ export function Products() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-4 mb-16">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground section-title">
-              Productos <span className="text-primary">9mx</span>
+              Productos <span className="text-primary">9MX</span>
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Productos exclusivos de la marca 9mx</p>
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">Productos exclusivos de la marca 9MX</p>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">

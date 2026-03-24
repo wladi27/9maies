@@ -36,9 +36,9 @@ export function EventGallery() {
   ]
 
   const videos = [
-    { id: 'v1', title: 'Evento: Lanzamiento 9mx', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' },
+    { id: 'v1', title: 'Evento: Lanzamiento 9MX', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' },
     { id: 'v2', title: 'Panel: Estrategias IA', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' },
-    { id: 'v3', title: 'Webinar: Fondo 9mx', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' }
+    { id: 'v3', title: 'Webinar: Fondo 9MX', url: 'https://www.youtube.com/embed/DkFQcLzVvMs' }
   ]
 
   const [currentSlide, setCurrentSlide] = useState(0)

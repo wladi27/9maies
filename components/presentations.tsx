@@ -34,7 +34,7 @@ export function Presentations() {
               <span className="text-[color:var(--primary)]">Presentaciones</span> y Recursos
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-[rgba(212,175,55,0.7)] max-w-3xl mx-auto">
-              Accede a nuestras presentaciones oficiales y materiales educativos sobre 9mx
+              Accede a nuestras presentaciones oficiales y materiales educativos sobre 9MX
             </p>
           </div>
 
@@ -49,7 +49,7 @@ export function Presentations() {
                       <div className="relative h-full w-full bg-black">
                         <Image
                           src="/presentacio_9mx.png"
-                          alt="9mx Presentacion"
+                          alt="9MX Presentación"
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
@@ -65,7 +65,7 @@ export function Presentations() {
                   {/* Contenido */}
                   <div className="space-y-4 lg:space-y-6">
                     <div>
-                      <h3 className="text-3xl font-bold text-white">9mx Presentación Oficial</h3>
+                      <h3 className="text-3xl font-bold text-white">9MX Presentación Oficial</h3>
                       <p className="text-lg text-white font-semibold mt-2">
                         Cómo navegar el futuro de las finanzas
                       </p>
@@ -79,7 +79,7 @@ export function Presentations() {
                     <div className="flex flex-wrap gap-4">
                       <Button 
                         size="lg" 
-                        onClick={() => openVideo(PRESENTATION_EMBED, PRESENTATION_WATCH, "Presentación 9mx")} 
+                        onClick={() => openVideo(PRESENTATION_EMBED, PRESENTATION_WATCH, "Presentación 9MX")} 
                         className="bg-[color:var(--primary)] text-white hover:brightness-90 text-lg px-8 py-6 shadow-lg"
                       >
                         <Play className="w-5 h-5 mr-2" />
@@ -116,7 +116,7 @@ export function Presentations() {
                       <div className="relative h-full w-full bg-black">
                         <Image
                           src="/plan_9mx.png"
-                          alt="Plan de compensación 9mx"
+                            alt="Plan de compensación 9MX"
                           fill
                           className="object-cover"
                           sizes="(max-width: 768px) 100vw, 50vw"
@@ -130,7 +130,7 @@ export function Presentations() {
 
                   <div className="space-y-4 lg:space-y-6">
                     <div>
-                      <h3 className="text-3xl font-bold text-white">Plan de Compensación 9mx</h3>
+                      <h3 className="text-3xl font-bold text-white">Plan de Compensación 9MX</h3>
                       <p className="text-lg text-white font-semibold mt-2">
                         Cómo participas y qué puedes ganar
                       </p>
@@ -144,7 +144,7 @@ export function Presentations() {
                     <div className="flex flex-wrap gap-4">
                       <Button 
                         size="lg" 
-                        onClick={() => openVideo(COMP_PLAN_EMBED, COMP_PLAN_WATCH, "Plan de compensación 9mx")} 
+                        onClick={() => openVideo(COMP_PLAN_EMBED, COMP_PLAN_WATCH, "Plan de compensación 9MX")} 
                         className="bg-[color:var(--primary)] text-white hover:brightness-90 text-lg px-8 py-6 shadow-lg"
                       >
                         <Play className="w-5 h-5 mr-2" />

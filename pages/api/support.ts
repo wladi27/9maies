@@ -21,10 +21,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const result = await client.send({
       from: {
         email: "hello@www.xn--9maienespaol-jhb.com",
-        name: "9mx Soporte",
+        name: "9MX Soporte",
       },
       to: [{ email: "gsabusinesses@gmail.com" }], // Cambia al email que necesites
-      subject: "Solicitud de Atención al Cliente - 9mx",
+      subject: "Solicitud de Atención al Cliente - 9MX",
       text: `ID de cuenta: ${accountId}\nNombre: ${fullName}\nEmail: ${email}`,
       html: `
         <div style="font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color: #111;">
@@ -36,11 +36,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Nombre Completo</td><td style="padding:8px;border-top:1px solid #f0f0f0">${fullName}</td></tr>
               <tr><td style="padding:8px;border-top:1px solid #f0f0f0;font-weight:600">Email</td><td style="padding:8px;border-top:1px solid #f0f0f0">${email}</td></tr>
             </table>
-            <p style="margin:18px 0 0;color:#666;font-size:13px">Mensaje enviado desde el sistema de soporte de <strong>9mx</strong>.</p>
+            <p style="margin:18px 0 0;color:#666;font-size:13px">Mensaje enviado desde el sistema de soporte de <strong>9MX</strong>.</p>
           </div>
         </div>
       `,
-      category: "Soporte 9mx",
+      category: "Soporte 9MX",
     })
 
     console.log('Email sent:', result)

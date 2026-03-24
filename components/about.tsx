@@ -6,7 +6,7 @@ import VideosGrid from "@/components/videos-grid"
 export function About() {
   const solutions = [
     {
-      title: "Fondo 9mx",
+      title: "Fondo 9MX",
       description: "Vehículo de inversión cuantitativa que asigna activos de manera adaptativa en múltiples clases.",
       icon: TrendingUp
     },
@@ -16,7 +16,7 @@ export function About() {
       icon: Users
     },
     {
-      title: "Academia 9mx",
+      title: "Academia 9MX",
       description: "Programa formativo de élite para inversores.",
       icon: Award
     }
@@ -56,7 +56,7 @@ export function About() {
             </div>
             <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground">
               Sobre <span className="text-primary relative">
-                9mx
+                9MX
                 <span className="absolute -bottom-2 left-0 w-full h-1 bg-primary/30 rounded-full"></span>
               </span>
             </h2>
@@ -72,7 +72,7 @@ export function About() {
             
             <div className="relative z-10">
               <p className="text-2xl text-foreground mb-6 font-light leading-relaxed">
-                <span className="font-semibold text-primary">9mx</span> es una empresa fintech pionera que redefine la 
+                      <span className="font-semibold text-primary">9MX</span> es una empresa fintech pionera que redefine la 
                 gestión patrimonial mediante generación financiera de próxima generación.
               </p>
               
@@ -118,11 +118,10 @@ export function About() {
 
           {/* Licenses Section */}
           <div className="mb-16">
-            <div className="flex items-center justify-between mb-8">
-              <h3 className="text-2xl font-semibold text-foreground">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground">
                 Licencias y <span className="text-primary">certificaciones</span>
-              </h3>
-              <div className="h-px flex-1 bg-border ml-6"></div>
+              </h2>
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                 {['1.png','2.png','3.png','4.jpg'].map((file, idx) => (

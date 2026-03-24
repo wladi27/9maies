@@ -29,7 +29,7 @@ export function Header() {
             <button onClick={scrollToTop} aria-label="Ir al inicio" className="focus:outline-none">
               <Image
                 src="/logo-new.png"
-                alt="9mx Logo"
+                alt="9MX Logo"
                 width={120}
                 height={120}
                 className="object-contain"

@@ -47,14 +47,14 @@ export function Hero() {
           <div className="space-y-6 sm:space-y-8">
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight">
               <span className="bg-gradient-to-r from-primary via-purple-400 to-primary bg-clip-text text-transparent">
-                9mx
+                9MX
               </span>
               <br />
               <span className="text-foreground">La compañía que sabe cómo hacer crecer tu dinero</span>
             </h1>
 
             <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl">
-              Empoderar a los usuarios para lograr el crecimiento financiero a través de la compañia 9mx.
+              Empoderar a los usuarios para lograr el crecimiento financiero a través de la compañia 9MX.
             </p>
 
             

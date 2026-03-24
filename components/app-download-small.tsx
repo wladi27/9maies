@@ -108,7 +108,7 @@ export function AppDownloadSmall() {
                 <div className="space-y-4">
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold">
                     <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                      9mx
+                      9MX
                     </span>
                     <span className="text-white"> App</span>
                   </h2>
@@ -118,51 +118,13 @@ export function AppDownloadSmall() {
                 </div>
 
                 {/* Características */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-300 group">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Zap className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-white">IA Predictiva</h4>
-                      <p className="text-xs text-gray-400">Análisis en tiempo real</p>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 items-center">
+                  <div className="hidden sm:flex items-center justify-center">
+                    <img src="/5028682508165385273.jpg" alt="9MX App" className="w-48 md:w-56 rounded-xl shadow-lg object-contain" />
                   </div>
-                  
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-300 group">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Shield className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-white">Seguridad AES-256</h4>
-                      <p className="text-xs text-gray-400">Protección avanzada</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-300 group">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Clock className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-white">Soporte 24/7</h4>
-                      <p className="text-xs text-gray-400">Asistencia inmediata</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start gap-3 p-3 rounded-lg bg-white/5 border border-white/10 hover:border-primary/30 transition-all duration-300 group">
-                    <div className="p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors">
-                      <Smartphone className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-semibold text-white">Multiplataforma</h4>
-                      <p className="text-xs text-gray-400">iOS y Android</p>
-                    </div>
-                  </div>
-                </div>
 
-                {/* Botones de descarga */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <a href="https://zta4y.lahuafa.com/5dUj/1BvqDkOpT1APl7kx3" className="group flex-1">
+                  <div className="flex flex-col justify-center space-y-2">
+                   <a href="https://zta4y.lahuafa.com/5dUj/1BvqDkOpT1APl7kx3" className="group flex-1">
                     <Button className="w-full gap-3 h-14 bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white border border-gray-700 hover:border-primary/50 transition-all duration-300 shadow-lg">
                       <svg className="w-6 h-6" viewBox="0 0 512 512" fill="currentColor">
                         <path d="M349.6 69.6c-30.6 1.2-67.6 20.2-89.6 45.7-19.6 23.1-36.6 59-30.2 93.1 31 .9 63.5-17.2 84-41.9 21.4-25.8 37.7-61 36-92.9zM407 176.2c-1.9-40.4-21.5-71.4-45.1-95.2-23.3-23.3-56.3-39.2-92.8-39.6-36.3-.4-68 17.6-90 44.4-26.4 32-37.2 78.8-21.9 121.5 20.1 51.7 72.7 88.6 130.1 88.6 25.8 0 51.1-6.6 72.3-18.6 24.6-13.7 45.8-36.6 47.4-76.3 1.1-31.1-11.1-64.3-99.9-124.8 0 0 62.2 69.9 58.9 143.2z"/>
@@ -187,10 +149,8 @@ export function AppDownloadSmall() {
                       <ArrowRight className="w-5 h-5 ml-auto opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
                     </Button>
                   </a>
-                </div>
 
-                {/* Estadísticas */}
-                <div className="flex items-center justify-between pt-6 border-t border-white/10">
+                   <div className="flex items-center justify-between pt-6 border-t border-white/10">
                   <div className="text-center">
                     <div className="text-2xl font-bold text-primary">10K+</div>
                     <div className="text-xs text-gray-400">Descargas</div>
@@ -204,6 +164,11 @@ export function AppDownloadSmall() {
                     <div className="text-xs text-gray-400">Soporte</div>
                   </div>
                 </div>
+
+                  </div>
+                </div>
+
+                
               </div>
             </div>
 

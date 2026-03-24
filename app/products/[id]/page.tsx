@@ -35,7 +35,7 @@ export default function ProductDetailsPage() {
     "tarjeta-visa": {
       _id: "tarjeta-visa",
       name: "Tarjeta Visa",
-      description: "Tarjeta Visa co‑brandeada con 9mx para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.",
+      description: "Tarjeta Visa co‑brandeada con 9MX para pagos globales seguros, recompensas exclusivas y control total desde la app; soporte 24/7 y protección avanzada contra fraudes.",
       price: 0,
 
       image: "/visa2.png",
@@ -43,14 +43,14 @@ export default function ProductDetailsPage() {
     "novamind": {
       _id: "novamind",
       name: "NovaMind™",
-      description: "Motor de IA financiera de 9mx que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.",
+      description: "Motor de IA financiera de 9MX que analiza mercados en tiempo real, genera estrategias y señales automatizadas con transparencia, métricas claras y control total desde la app.",
       price: 0,
 
       image: "/niva2.png",
     },
     "academia": {
       _id: "academia",
-      name: "Academia 9mx",
+      name: "Academia 9MX",
       description: "Programa formativo de élite para inversores: cursos, certificaciones y casos prácticos para dominar la inversión con IA. Contenidos on-demand, workshops y material exclusivo para alumnos.",
       price: 0,
       image: "/academy2.png",
@@ -58,7 +58,7 @@ export default function ProductDetailsPage() {
     "exchange": {
       _id: "exchange",
       name: "Intercambio",
-      description: "Plataforma Exchange de 9mx para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.",
+      description: "Plataforma Exchange de 9MX para intercambio de cripto‑activos con alta liquidez, seguridad de nivel institucional, tarifas competitivas y órdenes avanzadas integradas con tu cartera.",
       price: 0,
 
       image: "/exchenge2.png",
@@ -176,7 +176,7 @@ export default function ProductDetailsPage() {
                   <h3 className="text-sm font-semibold text-foreground mb-2">Características</h3>
                   <ul className="list-disc pl-5 space-y-2 text-muted-foreground text-sm mb-4">
                     <li>Soporte y seguridad de nivel empresarial.</li>
-                    <li>Integración con la app 9mx y control total desde tu panel.</li>
+                    <li>Integración con la app 9MX y control total desde tu panel.</li>
                     <li>Actualizaciones constantes y asistencia dedicada.</li>
                   </ul>
 

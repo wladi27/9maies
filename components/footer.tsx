@@ -12,7 +12,7 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Image
                   src="/logo-new.png"
-                  alt="9mx Logo"
+                  alt="9MX Logo"
                   width={80}
                   height={80}
                   className="object-contain"
@@ -21,7 +21,7 @@ export function Footer() {
                 <div className="flex flex-col text-[10px] md:text-xs text-muted-foreground leading-tight">
                   <div className="text-foreground font-semibold text-xs md:text-sm">Agente autorizado<br /> Romio Santiago (Mr. G)</div>
                   <div className="text-[10px] md:text-[11px]">Equipo el proximo nivel</div>
-                  <div className="text-[10px] md:text-[11px]">Socio y mentor 100 de 9mx</div>
+                  <div className="text-[10px] md:text-[11px]">Socio y mentor 100 de 9MX</div>
                 </div>
               </div>
               <p className="text-sm text-muted-foreground">
@@ -74,12 +74,12 @@ export function Footer() {
 
           {/* Bottom Bar */}
           <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-sm text-muted-foreground">© 2025 9mx. Todos los derechos reservados.</div>
+            <div className="text-sm text-muted-foreground">© 2025 9MX. Todos los derechos reservados.</div>
 
             {/* Social Links: only Facebook & Instagram */}
             <div className="flex items-center gap-3 md:gap-4">
               <a
-                aria-label="Facebook - 9mx"
+                aria-label="Facebook - 9MX"
                 href="https://www.facebook.com/profile.php?id=61581678449984"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -88,7 +88,7 @@ export function Footer() {
                 <Facebook className="w-5 h-5" />
               </a>
               <a
-                aria-label="Instagram - 9mx"
+                aria-label="Instagram - 9MX"
                 href="https://www.instagram.com/9mx_esp?igsh=cTdrbWw5aWtsNnJr"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -97,7 +97,7 @@ export function Footer() {
                 <Instagram className="w-5 h-5" />
               </a>
               <a
-                aria-label="YouTube - 9mx"
+                aria-label="YouTube - 9MX"
                 href="https://www.youtube.com/@9mx_en_Español"
                 target="_blank"
                 rel="noopener noreferrer"

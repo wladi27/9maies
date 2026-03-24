@@ -15,7 +15,7 @@ export function Team() {
             <Image src="/team.jpeg" alt="Equipo de instructores" fill className="object-cover" />
           </div>
           <div className="p-6 md:w-1/2">
-            <h3 className="text-2xl font-semibold">Equipo 9mx</h3>
+            <h3 className="text-2xl font-semibold">Equipo 9MX</h3>
             <p className="mt-3 text-muted-foreground">Nuestro equipo combina experiencia en inteligencia artificial aplicada a mercados financieros, estrategias cuantitativas y formación práctica. Trabajamos con un enfoque personalizado para ayudarte a diseñar y aplicar estrategias que funcionen en el mundo real.</p>
             <p className="mt-4 text-sm text-muted-foreground">Participa en nuestros cursos, eventos y sesiones en vivo para aprender de la experiencia directa de los instructores.</p>
           </div>

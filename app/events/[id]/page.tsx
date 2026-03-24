@@ -252,13 +252,13 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                       </div>
                       <div>
                                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                                    10ª Cumbre Global 9mx
+                                    10ª Cumbre Global 9MX
                                   </h3>
                         <div className="flex items-center gap-3">
                           <Badge className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 text-blue-300 border border-blue-700/50">
                             OFICIAL
                           </Badge>
-                          <span className="text-sm text-gray-400">Ref: 9mx25122701</span>
+                          <span className="text-sm text-gray-400">Ref: 9MX25122701</span>
                         </div>
                       </div>
                     </div>
@@ -269,15 +269,15 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                         <div className="p-6 md:p-8">
                           <div className="mb-6">
                             <p className="text-gray-300 mb-4">
-                              Estimados usuarios de 9mx, 9mx anuncia mediante el presente que la 
-                              <span className="font-semibold text-blue-300"> Cumbre Global 2026 de 9mx</span>, que marca la 
+                              Estimados usuarios de 9MX, 9MX anuncia mediante el presente que la 
+                              <span className="font-semibold text-blue-300"> Cumbre Global 2026 de 9MX</span>, que marca la 
                               <span className="font-semibold text-blue-300"> 10ª Cumbre Global</span>, se celebrará en 
                               <span className="font-semibold text-blue-300"> Dubái, Emiratos Árabes Unidos, del 6 al 9 de febrero de 2026</span>.
                             </p>
                             
                             <div className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 rounded-xl p-5 border border-blue-800/30">
                               <p className="text-blue-200 font-medium">
-                                La 10ª Cumbre Global representa un hito importante en el desarrollo global de 9mx y servirá 
+                                La 10ª Cumbre Global representa un hito importante en el desarrollo global de 9MX y servirá 
                                 como una plataforma de alto nivel para la alineación de la gestión global, la coordinación 
                                 de liderazgo y la planificación estratégica para la próxima fase operativa.
                               </p>
@@ -297,7 +297,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                             </h4>
                             <ul className="space-y-4">
                               {[
-                                { label: 'Evento', value: 'Cumbre Global 2026 de 9mx' },
+                                { label: 'Evento', value: 'Cumbre Global 2026 de 9MX' },
                                 { label: 'Edición', value: '10ª Cumbre Global' },
                                 { label: 'Ubicación', value: 'Dubái, Emiratos Árabes Unidos' },
                                 { label: 'Lugar', value: 'Por anunciar' }
@@ -352,19 +352,19 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
                         <div className="p-6 md:p-8">
                           <p className="text-gray-300 mb-6">
                             Se anunciarán más detalles sobre la agenda, el lugar y los arreglos de participación a través 
-                            de los canales oficiales de 9mx en el momento oportuno.
+                            de los canales oficiales de 9MX en el momento oportuno.
                           </p>
                           <div className="pt-6 border-t border-gray-800">
                             <p className="text-xl font-medium text-white mb-4">Gracias por su continua confianza y apoyo.</p>
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                               <div>
-                                <p className="text-gray-300 font-semibold">Equipo de Operaciones de 9mx</p>
+                                <p className="text-gray-300 font-semibold">Equipo de Operaciones de 9MX</p>
                                 <p className="text-sm text-gray-500">27 de diciembre de 2025</p>
                               </div>
                               <Badge className="bg-gradient-to-r from-blue-900/40 to-cyan-900/40 text-blue-300 border border-blue-700/50 w-fit">
                                 <div className="flex items-center gap-2">
                                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse"></div>
-                                  9mx OFFICIAL
+                                  9MX OFFICIAL
                                 </div>
                               </Badge>
                             </div>

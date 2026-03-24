@@ -82,7 +82,7 @@ export default function AcademySignupModal({ productId = 'academia' }: { product
       </DialogTrigger>
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Inscripción Academia 9mx</DialogTitle>
+          <DialogTitle>Inscripción Academia 9MX</DialogTitle>
           <DialogDescription>Rellena el formulario para comenzar hoy. Todos los campos con * son obligatorios.</DialogDescription>
         </DialogHeader>
 
